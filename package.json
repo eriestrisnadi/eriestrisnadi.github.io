@@ -1,0 +1,51 @@
+{
+  "name": "lowsprofile",
+  "description": "The best project ever.",
+  "version": "0.1.0",
+  "homepage": "https://github.com/Zdumb/lowsprofile",
+  "author": {
+    "name": "Eries Trisnadi",
+    "email": "zdumb1885@outlook.com",
+    "url": "https://lowsprofile.github.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/Zdumb/lowsprofile.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Zdumb/lowsprofile/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/Zdumb/lowsprofile/blob/master/LICENSE-MIT"
+    }
+  ],
+  "main": "app.js",
+  "engines": {
+    "node": ">= 0.10.0"
+  },
+  "scripts": {
+    "test": "grunt nodeunit"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.5",
+    "grunt-contrib-concat": "^1.0.1",
+    "grunt-contrib-connect": "^1.0.2",
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-contrib-cssmin": "^1.0.2",
+    "grunt-contrib-jshint": "^1.1.0",
+    "grunt-contrib-nodeunit": "^1.0.0",
+    "grunt-contrib-pug": "^1.0.0",
+    "grunt-contrib-sass": "^1.0.0",
+    "grunt-contrib-uglify": "~0.2.0",
+    "grunt-contrib-watch": "~0.4.0",
+    "grunt-package-modules": "^1.0.0"
+  },
+  "keywords": [],
+  "dependencies": {
+    "bootstrap": "^4.0.0-alpha.5",
+    "daemonite-material": "^4.0.0-alpha.2",
+    "tether": "^1.3.7"
+  }
+}
