@@ -1,16 +1,10 @@
 doctype html
-html(amp, lang="en", class="full")
+html(lang="en", class="full")
   head
     meta(charset="utf-8")
-    script(async, src="https://cdn.ampproject.org/v0.js")
     title Eries Trisnadi
     link(rel="canonical", href=".")
     meta(name="viewport", content="width=device-width,minimum-scale=1,initial-scale=1")
-    style(amp-boilerplate="").
-      body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}
-    noscript
-      style(amp-boilerplate="").
-        body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}
     include partials/head.pug
   body
     .filter
@@ -31,6 +25,8 @@ html(amp, lang="en", class="full")
                 a.nav-item.nav-link(href="//linkedin.com/in/eriestrisnadi") LinkedIn
               li.nav-item
                 a.nav-item.nav-link(href="//instagram.com/eriestrisnadi/") Instagram
+              li.nav-item
+                a.nav-item.nav-link(href="/resume/resume.pdf") Resume
               li.nav-item
                 a.nav-item.nav-link(href="mailto:zdumb1885@outlook.com") Contact
       // /.container
