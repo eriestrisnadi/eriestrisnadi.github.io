@@ -87,6 +87,6 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-copy')
     grunt.loadNpmTasks('grunt-contrib-jshint')
 
-    grunt.registerTask('dist', ['jshint', 'pug', 'sass:dist', 'uglify:dist', 'copy:main', 'cssmin', 'connect:server'])
     grunt.registerTask('build', ['jshint', 'pug', 'sass:dist', 'uglify:dist', 'copy:main', 'cssmin'])
+    grunt.registerTask('serve', ['connect:server'])
 }

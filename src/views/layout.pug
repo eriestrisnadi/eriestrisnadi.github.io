@@ -9,29 +9,20 @@ html(lang="en", class="full")
   body
     .filter
     // Navigation
-    header.navbar.navbar-light.navbar-fixed-bottom.bd-navbar.bg-faded
-      .container
-        nav
-          .clearfix
-            button.navbar-toggler.float-xs-right.hidden-sm-up.collapsed.bg-inverse.bg-avatar(type="button", data-toggle="collapse", data-target="#bd-main-nav", aria-controls="bd-main-nav", aria-expanded="false", aria-label="Toggle navigation")
-            a.navbar-brand.hidden-sm-up(href="/") Eries Trisnadi
-          #bd-main-nav.navbar-toggleable-xs.collapse(aria-expanded="false", style="")
-            .navbar-header.hidden-xs-down
-              a.nav-link.navbar-brand(href="/") Eries Trisnadi
-            ul.nav.navbar-nav.float-md-right
-              li.nav-item
-                a.nav-item.nav-link(href="//blog.eries.id") Blog
-              li.nav-item
-                a.nav-item.nav-link(href="//github.com/lowsprofile") Github
-              li.nav-item
-                a.nav-item.nav-link(href="//linkedin.com/in/eriestrisnadi") LinkedIn
-              li.nav-item
-                a.nav-item.nav-link(href="//instagram.com/eriestrisnadi/") Instagram
-              li.nav-item
-                a.nav-item.nav-link(href="/resume/resume.pdf") Resume
-              li.nav-item
-                a.nav-item.nav-link(href="mailto:me@eries.id") Contact
-      // /.container
+    #doc_navbar.navbar.navbar-light.bg-faded.navbar-fixed-bottom.doc-navbar.hidden-lg-up
+      button.navbar-toggler.bg-avatar.hidden-lg-up(aria-controls='doc_navdrawer', aria-expanded='false', aria-label='Toggle Navdrawer', data-target='#doc_navdrawer', data-toggle='navdrawer', data-type='permanent')
+      a.navbar-brand(href='/') Eries Trisnadi
+    #doc_navdrawer.navdrawer.navdrawer-permanent.doc-navdrawer(style='display: none;')
+      .navdrawer-content
+        .navdrawer-header
+          a.navbar-brand.px-0(href='/') Eries Trisnadi
+        nav.navdrawer-nav
+          a.nav-item.nav-link(href='//blog.eries.id') Blog
+          a.nav-item.nav-link(href='//github.com/lowsprofile') Github
+          a.nav-item.nav-link(href='//linkedin.com/in/eriestrisnadi') LinkedIn
+          a.nav-item.nav-link(href='//instagram.com/eriestrisnadi/') Instagram
+          a.nav-item.nav-link(href='/resume/resume.pdf') Resume
+          a.nav-item.nav-link(href='mailto:me@eries.id') Contact
     .container
       block body
     include partials/foot.pug
