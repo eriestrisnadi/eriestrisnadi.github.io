@@ -1,7 +1,7 @@
 {
   "name": "lowsprofile",
   "description": "The best project ever.",
-  "version": "0.2.1",
+  "version": "3.0.0",
   "homepage": "http://eries.id",
   "author": {
     "name": "Eries Trisnadi",
@@ -18,35 +18,23 @@
   "licenses": [
     {
       "type": "MIT",
-      "url": "https://github.com/lowsprofile/lowsprofile.github.io/blob/master/LICENSE-MIT"
+      "url": "https://github.com/lowsprofile/lowsprofile.github.io/blob/master/LICENSE"
     }
   ],
   "main": "index.html",
-  "engines": {
-    "node": ">= 0.10.0"
-  },
   "scripts": {
-    "serve": "grunt serve",
-    "test": "grunt build",
-    "build": "grunt build"
+    "test": "jest",
+    "build": "run-s build:* mustache",
+    "build:data": "node tools/build-data",
+    "mustache": "mustache resources/index.json resources/index.mustache > index.html",
+    "prepublish": "run-s build"
   },
-  "devDependencies": {
-    "grunt": "^1.0.1",
-    "grunt-contrib-concat": "^1.0.1",
-    "grunt-contrib-connect": "^1.0.2",
-    "grunt-contrib-copy": "^1.0.0",
-    "grunt-contrib-cssmin": "^2.0.0",
-    "grunt-contrib-jshint": "^1.1.0",
-    "grunt-contrib-nodeunit": "^1.0.0",
-    "grunt-contrib-pug": "^1.0.0",
-    "grunt-contrib-sass": "^1.0.0",
-    "grunt-contrib-uglify": "^2.1.0",
-    "grunt-contrib-watch": "^1.0.0"
-  },
+  "private": true,
   "keywords": [],
-  "dependencies": {
-    "bootstrap": "^4.0.0-alpha.6",
-    "daemonite-material": "^4.0.0-alpha.6",
-    "tether": "^1.4.0"
+  "devDependencies": {
+    "deepmerge": "^2.0.1",
+    "jest": "^21.2.1",
+    "mustache": "^2.3.0",
+    "npm-run-all": "^4.1.2"
   }
 }
