@@ -1,0 +1,40 @@
+html, body {
+  background: url(https://getuikit.com/images/section-background.svg) 50% 17vh no-repeat,linear-gradient(to left top, #bfc4e0, #737caf) 0 0 no-repeat;
+}
+.uk-icon{
+  margin-right: 5px;
+}
+.uk-card .uk-card-body {
+  position: relative;
+}
+.uk-card .uk-card-body .uk-card-avatar {
+  position: absolute;
+  top: -50px;
+  right: 35px;
+  border-radius: 50%;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+.uk-card .uk-card-body .uk-card-avatar img {
+  width: 100px;
+}
+.uk-card .uk-card-body .uk-navigation-social {
+  bottom: -90px;
+}
+@media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+  html, body {
+    background: #fff;
+  }
+  body > .uk-section {
+    padding: 0px;
+  }
+  body > .uk-section .uk-card-default {
+    box-shadow: none;
+  }
+  .uk-card .uk-card-body .uk-card-avatar {
+    top: -35px;
+  }
+  .uk-card .uk-card-body .uk-card-avatar img {
+    width: 65px;
+  }
+}
