@@ -1,0 +1,4 @@
+{
+  "*.{html,css,scss,md,json,yml}": ["yarn format", "git add"],
+  "*.{ts,js}": ["yarn lint", "yarn format", "git add"]
+}

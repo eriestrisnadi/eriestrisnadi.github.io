@@ -22,10 +22,12 @@
   ],
   "main": "index.html",
   "scripts": {
+    "eslint": "eslint",
     "prettier": "prettier",
     "jest": "jest",
     "run-s": "run-s",
     "test": "jest",
+    "lint": "eslint **/*.js",
     "build": "run-s build:* mustache",
     "build:data": "node tools/build-data",
     "mustache": "mustache resources/index.json resources/index.mustache > index.html",
@@ -35,7 +37,10 @@
   "private": true,
   "keywords": [],
   "devDependencies": {
+    "eslint": "7.9.0",
+    "husky": "4.3.0",
     "jest": "^21.2.1",
+    "lint-staged": "10.4.0",
     "lodash": "^4.17.20",
     "mustache": "^2.3.0",
     "npm-run-all": "^4.1.2",
