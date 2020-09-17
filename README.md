@@ -7,11 +7,11 @@
 My personal website, built with Mustache and UIkit V3.
 
 ## Credits
-- Copyright (c) 2016 Eries Trisnadi – [me@eries.id](mailto:me@eries.id)
+- Copyright (c) 2016 Eries Trisnadi – [lognus21@gmail.com](mailto:lognus21@gmail.com)
 - Distributed under the MIT license.
 
-[website-image]: http://img.shields.io/website-up-down-green-red/http/eries.id.svg?style=flat-square
-[website-url]: http://eries.id
+[website-image]: http://img.shields.io/website-up-down-green-red/http/lowsprofile.github.io.svg?style=flat-square
+[website-url]: http://lowsprofile.github.io
 [travis-image]: https://img.shields.io/travis/lowsprofile/lowsprofile.github.io/master.svg?style=flat-square
 [travis-url]: https://travis-ci.org/lowsprofile/lowsprofile.github.io
 [license-image]: https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square
