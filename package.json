@@ -31,7 +31,6 @@
     "build": "run-s build:* mustache",
     "build:data": "node tools/build-data",
     "mustache": "mustache resources/index.json resources/index.mustache > index.html",
-    "prepublish": "run-s build",
     "format": "prettier --write \"**/*.{js,ts,html,css,scss,md,json,yml}\""
   },
   "private": true,
