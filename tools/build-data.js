@@ -17,32 +17,27 @@ const SETTING_DATA = {
 
 const NAVIGATION_DATA = [
   {
-    name: "Contact",
-    icon: "mail",
+    name: 'Contact',
+    icon: 'mail',
     link: `mailto:${author.email || ''}`,
-  }
+  },
 ];
 
-const DATA = JSON_DATA
-  .map(obj => ({
-    key: obj.replace('.json', ''),
-    value: JSON.parse(readFileSync(join(JSON_DATA_PATH, obj), 'utf8') || '{}')
-  }))
-  .reduce((obj, item) => ({
+const DATA = JSON_DATA.map((obj) => ({
+  key: obj.replace('.json', ''),
+  value: JSON.parse(readFileSync(join(JSON_DATA_PATH, obj), 'utf8') || '{}'),
+})).reduce(
+  (obj, item) => ({
     ...obj,
     [item['key']]: item.value,
-  }), {});
+  }),
+  {}
+);
 
 const MERGED_DATA = set(
-  merge(
-    SETTING_DATA,
-    DATA
-  ),
+  merge(SETTING_DATA, DATA),
   'navigation.social',
-  values(merge(
-    keyBy(DATA.navigation.social, 'name'),
-    keyBy(NAVIGATION_DATA, 'name')
-  ))
+  values(merge(keyBy(DATA.navigation.social, 'name'), keyBy(NAVIGATION_DATA, 'name')))
 );
 
 writeFileSync(JSON_INDEX_PATH, JSON.stringify(MERGED_DATA, null, 2));

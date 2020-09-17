@@ -7,6 +7,7 @@
 My personal website, built with Mustache and UIkit V3.
 
 ## Credits
+
 - Copyright (c) 2016 Eries Trisnadi – [lognus21@gmail.com](mailto:lognus21@gmail.com)
 - Distributed under the MIT license.
 
