@@ -17,14 +17,14 @@
   <div class="uk-section uk-section-small uk-flex uk-flex-center uk-flex-middle@m" uk-height-viewport>
       <div class="uk-card uk-card-default uk-width-1-3@m">
         {{ #setting.author.cover }}
-        <div class="uk-card-media-top uk-visible@s">
+        <div class="uk-card-media-top uk-visible@m">
           <div class="uk-cover-container uk-height-medium">
               <img src="{{.}}" alt="" uk-cover>
           </div>
         </div>
         {{ /setting.author.cover }}
         <div class="uk-card-body">
-          <div uk-grid>
+          <div uk-grid class="uk-flex uk-flex-center uk-flex-left@m">
             {{ #setting.author.avatar }}
             <div>
               <img class="uk-card-avatar uk-border-circle" src="{{{.}}}">
@@ -33,14 +33,18 @@
             <div>
               <div class="uk-card-title">{{ setting.author.name }}</div>
               <div class="uk-flex uk-flex-middle uk-text-muted uk-text-small">
-                <span uk-icon="icon: laptop; ratio: 1"></span> {{ setting.author.job }}
+                <span uk-icon="icon: laptop; ratio: 1"></span>
+                {{ setting.author.job }}&nbsp;
+                <a href="{{ setting.author.company.link }}">
+                  @{{ setting.author.company.name }}
+                </a>
               </div>
               <div class="uk-flex uk-flex-middle uk-text-muted uk-text-small">
                 <span uk-icon="icon: location; ratio: 1"></span> {{ setting.author.location }}
               </div>
             </div>
           </div>
-          <p>
+          <p class="uk-flex uk-flex-center uk-flex-left@m">
             {{{ setting.author.bio }}}
           </p>
         </div>

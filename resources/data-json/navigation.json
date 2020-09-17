@@ -18,12 +18,11 @@
     {
       "name": "Resume",
       "icon": "copy",
-      "link": "https://eries.id/resume/resume.pdf"
+      "link": "/resume/resume.pdf"
     },
     {
       "name": "Contact",
-      "icon": "mail",
-      "link": "mailto:me@eries.id"
+      "icon": "mail"
     }
   ]
 }

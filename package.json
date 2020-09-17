@@ -27,7 +27,7 @@
     "jest": "jest",
     "run-s": "run-s",
     "test": "jest",
-    "lint": "eslint **/*.js",
+    "lint": "eslint .",
     "build": "run-s build:* mustache",
     "build:data": "node tools/build-data",
     "mustache": "mustache resources/index.json resources/index.mustache > index.html",

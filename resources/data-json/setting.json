@@ -1,9 +1,13 @@
 {
   "author": {
-    "job": "Web Developer",
-    "bio": "Programmer, Geek, *nix user, Guitarist, College Dropout, Learner, Mentor. Founder of <a href=\"https://github.com/indomaximtechid\">@IndomaximTechID.</a>",
+    "job": "Front-End",
+    "bio": "Make it simple, \"Do it, or Don't do it\"!",
     "location": "Bandung, Indonesia",
     "cover": "resources/assets/images/workspace.jpg",
-    "avatar": "https://avatars1.githubusercontent.com/u/11029687?v=3&s=460"
+    "avatar": "https://avatars1.githubusercontent.com/u/11029687?v=3&s=460",
+    "company": {
+      "name": "Tradaru",
+      "link": "http://tradaru.com"
+    }
   }
 }
