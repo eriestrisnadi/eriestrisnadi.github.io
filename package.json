@@ -30,7 +30,7 @@
     "lint": "eslint .",
     "build": "run-s build:* mustache",
     "build:data": "node tools/build-data",
-    "mustache": "mustache resources/index.json resources/index.mustache > index.html",
+    "mustache": "mustache resources/cached.json resources/index.mustache > index.html",
     "format": "prettier --write \"**/*.{js,ts,html,css,scss,md,json,yml}\""
   },
   "private": true,

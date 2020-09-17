@@ -4,7 +4,7 @@ const { set, values, merge, keyBy } = require('lodash');
 const { name, version, author } = require('../package.json');
 const RESOURCES_PATH = resolve('resources');
 const JSON_DATA_PATH = join(RESOURCES_PATH, 'data-json');
-const JSON_INDEX_PATH = join(RESOURCES_PATH, 'index.json');
+const JSON_INDEX_PATH = join(RESOURCES_PATH, 'cached.json');
 const JSON_DATA = readdirSync(JSON_DATA_PATH);
 
 const SETTING_DATA = {

@@ -2,3 +2,4 @@ node_modules/
 dist/
 *.log
 *-lock.json
+resources/cached.json
