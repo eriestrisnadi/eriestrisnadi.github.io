@@ -1,5 +1,5 @@
 <template>
-  <app-tutorial />
+  <div>
+    <tutorial></tutorial>
+  </div>
 </template>
-
-<script lang="ts" src="./index.controller.ts"></script>

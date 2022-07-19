@@ -36,5 +36,8 @@
   </svg>
 </template>
 
-<script lang="ts" src="./index.controller.ts"></script>
-<style lang="scss" scoped src="./index.scss"></style>
+<style lang="scss" scoped>
+.nuxt-logo {
+  @apply h-12;
+}
+</style>
