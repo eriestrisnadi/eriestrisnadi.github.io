@@ -76,6 +76,7 @@ typings/
 
 # Nuxt generate
 dist
+.output
 
 # vuepress build output
 .vuepress/dist
@@ -97,3 +98,6 @@ sw.*
 
 # PnP file
 .pnp.*
+
+# nitropack
+.nitro
