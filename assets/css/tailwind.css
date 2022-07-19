@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+.text-stroke {
+  -webkit-text-stroke: 2px hsla(var(--bc) / 1);
+}
+
+::-moz-selection {
+  background: hsla(var(--s) / 0.7);
+}
+
+::selection {
+  background: hsla(var(--s) / 0.7);
+}
