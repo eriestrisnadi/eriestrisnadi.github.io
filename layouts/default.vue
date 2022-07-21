@@ -5,7 +5,11 @@
         <navbar></navbar>
       </div>
     </div>
-    <slot />
+    <div class="flex flex-col items-center">
+      <div class="w-full max-w-6xl px-2">
+        <slot />
+      </div>
+    </div>
     <div class="flex justify-center p-10 bg-neutral text-neutral-content">
       <div class="w-full max-w-6xl">
         <Footer />

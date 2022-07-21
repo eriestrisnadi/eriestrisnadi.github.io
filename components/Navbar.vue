@@ -8,7 +8,7 @@
           <a
             aria-label="Homepage"
             href="/"
-            class="text-2xl tracking-widest uppercase font-title btn btn-ghost"
+            class="text-2xl tracking-widest uppercase font-title"
           >
             <icon-brand class="w-20"></icon-brand>
           </a>

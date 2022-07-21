@@ -11,12 +11,12 @@ module.exports = {
     themes: [
       {
         dark: {
-          primary: '#e95374',
-          'primary-focus': '#d94f6d',
-          'primary-content': '#000',
-          secondary: '#34d399',
-          'secondary-focus': '#14b8a6',
+          secondary: '#e95374',
+          'secondary-focus': '#d94f6d',
           'secondary-content': '#000',
+          primary: '#34d399',
+          'primary-focus': '#14b8a6',
+          'primary-content': '#000',
           accent: '#2e97f3',
           'accent-focus': '#2a92ed',
           'accent-content': '#fff',

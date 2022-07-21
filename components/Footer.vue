@@ -1,7 +1,7 @@
 <template>
   <footer class="footer footer-center">
     <div class="flex">
-      <span class="tooltip tooltip-secondary" data-tip="GitHub">
+      <span class="tooltip tooltip-primary" data-tip="GitHub">
         <a
           href="https://github.com/eriestrisnadi"
           class="btn btn-sm btn-circle btn-ghost"
@@ -9,7 +9,7 @@
           <icon-github class="h-6 w-6"></icon-github>
         </a>
       </span>
-      <span class="tooltip tooltip-secondary" data-tip="Mail">
+      <span class="tooltip tooltip-primary" data-tip="Mail">
         <a :href="`mailto:${email}`" class="btn btn-sm btn-circle btn-ghost">
           <icon-mail class="h-6 w-6"></icon-mail>
         </a>
