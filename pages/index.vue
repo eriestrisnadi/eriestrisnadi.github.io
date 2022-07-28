@@ -9,13 +9,11 @@
 
     <section>
       <h2 class="text-2xl font-bold">Work</h2>
-      <work
-        :items="[
-          { content: 'Experience 2', date: '2022' },
-          { content: 'Experience 1', date: '2021' },
-        ]"
-      ></work>
+      <work :items="experiences"> </work>
     </section>
-    <tutorial></tutorial>
   </div>
 </template>
+
+<script setup>
+const { data: experiences } = await useFetch('/api/experiences')
+</script>
