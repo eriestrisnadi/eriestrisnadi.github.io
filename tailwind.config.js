@@ -11,8 +11,8 @@ module.exports = {
     themes: [
       {
         dark: {
-          secondary: '#e95374',
-          'secondary-focus': '#d94f6d',
+          secondary: '#facc15',
+          'secondary-focus': '#fbbf24',
           'secondary-content': '#000',
           primary: '#34d399',
           'primary-focus': '#14b8a6',

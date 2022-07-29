@@ -2,9 +2,10 @@
   <div class="space-y-10">
     <profile
       avatar="E"
-      name="R Eries Trisnandi"
+      name="R. Eries Trisnandi"
       profession="Software Engineer"
       email="zdumb1885@gmail.com"
+      location="Bandung, Indonesia"
     ></profile>
 
     <section>

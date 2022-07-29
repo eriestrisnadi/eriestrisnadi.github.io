@@ -18,19 +18,22 @@
               @error="imageSource = undefined"
             />
           </client-only>
-          <span v-if="!imageSource" class="text-3xl">{{ avatar }}</span>
+          <span v-if="!imageSource" class="text-3xl font-bold">
+            {{ avatar }}
+          </span>
         </div>
       </div>
 
       <div v-if="name || profession || email" class="space-y-2">
-        <h3 v-if="name" class="text-2xl text-center font-semibold uppercase">
+        <h3 v-if="name" class="text-2xl text-center font-bold capitalize">
           {{ name }}
         </h3>
         <h5
           v-if="profession || email"
           class="text-base text-center font-semibold"
         >
-          <p v-if="profession">{{ profession }}</p>
+          <p v-if="profession" class="uppercase">{{ profession }}</p>
+          <p v-if="location" class="text-sm font-normal">{{ location }}</p>
           <p v-if="email" class="text-sm font-normal">{{ email }}</p>
         </h5>
       </div>
@@ -53,6 +56,10 @@ const props = defineProps({
     default: '',
   },
   email: {
+    type: String,
+    default: '',
+  },
+  location: {
     type: String,
     default: '',
   },

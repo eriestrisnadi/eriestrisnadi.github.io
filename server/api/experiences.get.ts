@@ -8,7 +8,7 @@ export default defineEventHandler(async () => {
     },
     {
       company_name: 'Self-Employed',
-      job_role: 'Freelance Software Development',
+      job_role: 'Freelance Software Engineer',
       time_period: '2014 - Present',
       location: 'Anywhere',
     },
@@ -32,7 +32,7 @@ export default defineEventHandler(async () => {
     },
     {
       company_name: 'Piri',
-      job_role: 'Junior Software Engineer',
+      job_role: 'Junior Frontend Engineer',
       time_period: '2017 - 2018',
       location: 'Bandung, Indonesia',
     },

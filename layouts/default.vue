@@ -11,7 +11,10 @@
           <slot />
         </div>
       </div>
-      <div class="flex justify-center p-10 bg-neutral text-neutral-content">
+      <div
+        class="flex justify-center p-10 bg-neutral text-neutral-content"
+        data-theme="dark"
+      >
         <div class="w-full max-w-6xl">
           <Footer />
         </div>
