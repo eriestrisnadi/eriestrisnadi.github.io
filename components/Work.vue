@@ -36,7 +36,10 @@
             </span>
           </div>
         </div>
-        <div class="ml-5" :class="[[index === 0 ? 'text-primary' : '']]">
+        <div
+          class="ml-5 leading-none"
+          :class="[[index === 0 ? 'text-primary' : '']]"
+        >
           <p>
             <span class="text-sm font-semibold">
               {{ item.job_role }}
@@ -47,6 +50,15 @@
               {{ item.location }}
             </span>
           </p>
+
+          <content-renderer
+            v-if="!short"
+            class="text-sm mt-3 prose prose-sm"
+            :class="{
+              'text-primary': index === 0,
+            }"
+            :value="item"
+          ></content-renderer>
         </div>
       </li>
     </ul>
@@ -58,6 +70,10 @@ defineProps({
   items: {
     type: Array,
     default: () => [],
+  },
+  short: {
+    type: Boolean,
+    default: false,
   },
 })
 </script>

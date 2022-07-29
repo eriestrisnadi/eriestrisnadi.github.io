@@ -9,12 +9,14 @@
     ></profile>
 
     <section>
-      <h2 class="text-2xl font-bold">Work</h2>
-      <work :items="experiences"> </work>
+      <h2 class="text-2xl font-bold mb-5">Experiences</h2>
+      <work :items="experiences" short></work>
     </section>
   </div>
 </template>
 
 <script setup>
-const { data: experiences } = await useFetch('/api/experiences')
+const experiences = await queryContent('experiences')
+  .sort({ time_period: -1 })
+  .find()
 </script>
