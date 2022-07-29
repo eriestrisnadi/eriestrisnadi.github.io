@@ -1,11 +1,11 @@
 <template>
   <div class="space-y-10">
     <profile
-      avatar="E"
-      name="R. Eries Trisnandi"
-      profession="Software Engineer"
-      email="zdumb1885@gmail.com"
-      location="Bandung, Indonesia"
+      :avatar="state.short_name"
+      :full-name="state.name"
+      :profession="state.profession"
+      :email="state.email"
+      :location="state.location"
     ></profile>
 
     <section>
@@ -16,6 +16,7 @@
 </template>
 
 <script setup>
+const state = useRuntimeConfig().profile
 const experiences = await queryContent('experiences')
   .sort({ time_period: -1 })
   .find()

@@ -19,4 +19,14 @@ export default defineNuxtConfig({
     preference: 'light',
     dataValue: 'theme',
   },
+  publicRuntimeConfig: {
+    profile: {
+      name: process.env.PROFILE_NAME,
+      short_name: process.env.PROFILE_SHORT_NAME,
+      email: process.env.PROFILE_EMAIL,
+      location: process.env.PROFILE_LOCATION,
+      profession: process.env.PROFILE_PROFESSION,
+      github_profile: process.env.PROFILE_GH_URL,
+    },
+  },
 })
