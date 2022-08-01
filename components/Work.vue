@@ -52,7 +52,7 @@
           </p>
 
           <content-renderer
-            v-if="!short"
+            v-if="!short && !item._empty"
             class="text-sm mt-3 prose prose-sm"
             :class="{
               'text-primary': index === 0,

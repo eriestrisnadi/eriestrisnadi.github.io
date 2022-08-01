@@ -1,12 +1,12 @@
 <template>
-  <div>
+  <div class="min-h-screen flex flex-col">
     <div class="flex justify-center">
       <div class="w-full max-w-4xl">
         <navbar></navbar>
       </div>
     </div>
-    <div class="space-y-10">
-      <div class="flex flex-col items-center">
+    <div class="flex-1 space-y-10 flex flex-col">
+      <div class="flex-1 flex flex-col items-center">
         <div class="w-full max-w-4xl px-2">
           <slot />
         </div>
