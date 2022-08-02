@@ -1,9 +1,14 @@
 import { defineNuxtConfig } from 'nuxt'
 
+const site = {
+  title: process.env.SITE_TITLE || 'My Profile Website',
+}
+
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
 export default defineNuxtConfig({
   app: {
     head: {
+      title: site.title,
       link: [
         { rel: 'preconnect', href: '//fonts.googleapis.com' },
         { rel: 'preconnect', href: '//fonts.gstatic.com', crossOrigin: true },
@@ -20,6 +25,7 @@ export default defineNuxtConfig({
     dataValue: 'theme',
   },
   publicRuntimeConfig: {
+    site,
     profile: {
       name: process.env.PROFILE_NAME,
       short_name: process.env.PROFILE_SHORT_NAME,
