@@ -688,12 +688,12 @@
     unimport "^0.4.5"
     untyped "^0.4.4"
 
-"@nuxt/kit@npm:@nuxt/kit-edge@3.0.0-rc.6-27648790.4e2667f":
-  version "3.0.0-rc.6-27648790.4e2667f"
-  resolved "https://registry.yarnpkg.com/@nuxt/kit-edge/-/kit-edge-3.0.0-rc.6-27648790.4e2667f.tgz#ab69cf33d0152465c9b0f1e75cd03a66985aabf1"
-  integrity sha512-L4+BmDb4xqfq56PpZjF3Zab066UchL5dZiB5YYkLx9km0qt0VUCxvPAVW6lcl4v+Q4yJ6qQJsFoeEBkzaJaOXw==
+"@nuxt/kit@npm:@nuxt/kit-edge@3.0.0-rc.6-27657653.000d81d":
+  version "3.0.0-rc.6-27657653.000d81d"
+  resolved "https://registry.yarnpkg.com/@nuxt/kit-edge/-/kit-edge-3.0.0-rc.6-27657653.000d81d.tgz#cda67b31166f914d4e4f542b4ca91e592f838eae"
+  integrity sha512-BxfgRnrHtUDlh4Rvkhyj3j99kkMnnB6FIU8/bY92BVV2LuQ5tfVLrz2uxMSF+OTArfkGTafGvGKb8RLGf4JIrQ==
   dependencies:
-    "@nuxt/schema" "npm:@nuxt/schema-edge@3.0.0-rc.6-27648790.4e2667f"
+    "@nuxt/schema" "npm:@nuxt/schema-edge@3.0.0-rc.6-27657653.000d81d"
     c12 "^0.2.8"
     consola "^2.15.3"
     defu "^6.0.0"
@@ -704,12 +704,13 @@
     knitwork "^0.1.2"
     lodash.template "^4.5.0"
     mlly "^0.5.5"
-    pathe "^0.3.2"
+    ohash "^0.1.4"
+    pathe "^0.3.3"
     pkg-types "^0.3.3"
-    scule "^0.2.1"
+    scule "^0.3.2"
     semver "^7.3.7"
     unctx "^1.1.4"
-    unimport "^0.6.3"
+    unimport "^0.6.4"
     untyped "^0.4.4"
 
 "@nuxt/postcss8@^1.1.3":
@@ -742,21 +743,21 @@
     ufo "^0.8.5"
     unimport "^0.4.5"
 
-"@nuxt/schema@npm:@nuxt/schema-edge@3.0.0-rc.6-27648790.4e2667f":
-  version "3.0.0-rc.6-27648790.4e2667f"
-  resolved "https://registry.yarnpkg.com/@nuxt/schema-edge/-/schema-edge-3.0.0-rc.6-27648790.4e2667f.tgz#dc15b61d2bf3b57edcbc200387a06f7b2147f308"
-  integrity sha512-5euKRqUyOMdNIhJBExUgcdK4Qi96yh261IJMsx1UJXqs33rQQecKdq78F4vaLW0LuOtHSL/RTu8NxzHnP2Tn0Q==
+"@nuxt/schema@npm:@nuxt/schema-edge@3.0.0-rc.6-27657653.000d81d":
+  version "3.0.0-rc.6-27657653.000d81d"
+  resolved "https://registry.yarnpkg.com/@nuxt/schema-edge/-/schema-edge-3.0.0-rc.6-27657653.000d81d.tgz#3f78679897c6266442b487b2a04d2ac46bde5564"
+  integrity sha512-SpXZyFYLvTFcocfB3UXXDFIV7cUsf9ooUna4XdptzM6JTLn20nEY/U2dGmL+RTH6FFDWPWABXrMEcgcUmxQXnA==
   dependencies:
     c12 "^0.2.8"
     create-require "^1.1.1"
     defu "^6.0.0"
     jiti "^1.14.0"
-    pathe "^0.3.2"
+    pathe "^0.3.3"
     postcss-import-resolver "^2.0.0"
-    scule "^0.2.1"
+    scule "^0.3.2"
     std-env "^3.1.1"
     ufo "^0.8.5"
-    unimport "^0.6.3"
+    unimport "^0.6.4"
 
 "@nuxt/telemetry@^2.1.3":
   version "2.1.3"
@@ -784,13 +785,13 @@
     rc9 "^1.2.2"
     std-env "^3.1.1"
 
-"@nuxt/test-utils-edge@^3.0.0-rc.6-27635653.88f4525":
-  version "3.0.0-rc.6-27648790.4e2667f"
-  resolved "https://registry.yarnpkg.com/@nuxt/test-utils-edge/-/test-utils-edge-3.0.0-rc.6-27648790.4e2667f.tgz#2a6d3dd5e2d7db8e640a301033f766783e95e01a"
-  integrity sha512-W54Yb3QLAIa9TWwWNO2MrutqWjSvXYV5rsXRhMdTcYx8n+B+g24xOqavmN4Ok1K721deOiVU9m3jH+1AwGBTTA==
+"@nuxt/test-utils-edge@^3.0.0-rc.6-27657653.000d81d":
+  version "3.0.0-rc.6-27657653.000d81d"
+  resolved "https://registry.yarnpkg.com/@nuxt/test-utils-edge/-/test-utils-edge-3.0.0-rc.6-27657653.000d81d.tgz#6cad1247fe74629caac81a58a9e19a0827ebfb1a"
+  integrity sha512-i4qMWLC29dWFdJ4mHVaMJLFJdqk8aI8UtxZrUxwEA+mWkKJ+E9RV/nbp92Y2A+Uek3+AQMDUOc5tVUYmCtqEow==
   dependencies:
-    "@nuxt/kit" "npm:@nuxt/kit-edge@3.0.0-rc.6-27648790.4e2667f"
-    "@nuxt/schema" "npm:@nuxt/schema-edge@3.0.0-rc.6-27648790.4e2667f"
+    "@nuxt/kit" "npm:@nuxt/kit-edge@3.0.0-rc.6-27657653.000d81d"
+    "@nuxt/schema" "npm:@nuxt/schema-edge@3.0.0-rc.6-27657653.000d81d"
     defu "^6.0.0"
     execa "^6.1.0"
     get-port-please "^2.5.0"
@@ -6262,6 +6263,11 @@ pathe@^0.3.0, pathe@^0.3.2:
   resolved "https://registry.yarnpkg.com/pathe/-/pathe-0.3.2.tgz#016345ed643027404d7a9ed8d1454ad997a1483a"
   integrity sha512-qhnmX0TOqlCvdWWTkoM83wh5J8fZ2yhbDEc9MlsnAEtEc+JCwxUKEwmd6pkY9hRe6JR1Uecbc14VcAKX2yFSTA==
 
+pathe@^0.3.3:
+  version "0.3.3"
+  resolved "https://registry.yarnpkg.com/pathe/-/pathe-0.3.3.tgz#8d6d70a25d4db6024ed4d59e59c1bf80fcf18753"
+  integrity sha512-x3nrPvG0HDSDzUiJ0WqtzhN4MD+h5B+dFJ3/qyxVuARlr4Y3aJv8gri2cZzp9Z8sGs2a+aG9gNbKngh3gme57A==
+
 perfect-debounce@^0.1.3:
   version "0.1.3"
   resolved "https://registry.yarnpkg.com/perfect-debounce/-/perfect-debounce-0.1.3.tgz#ff6798ea543a3ba1f0efeeaf97c0340f5c8871ce"
@@ -8162,7 +8168,7 @@ unimport@^0.4.4, unimport@^0.4.5:
     strip-literal "^0.4.0"
     unplugin "^0.7.2"
 
-unimport@^0.6.3:
+unimport@^0.6.4:
   version "0.6.4"
   resolved "https://registry.yarnpkg.com/unimport/-/unimport-0.6.4.tgz#65ab496e41ac37952dad0c49394c64c62be6238a"
   integrity sha512-1cbSeTsC2EwzWeWAyQleajM354y+EYsymxE9p1wDbHKVTEe9XL6+e7vlEv2pj1Zk8YYFf+CBf9QG8My7aDKhag==
