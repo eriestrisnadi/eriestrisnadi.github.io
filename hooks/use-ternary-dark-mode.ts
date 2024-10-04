@@ -3,7 +3,7 @@ import { useMediaQuery } from "@/hooks/use-media-query";
 import { useLocalStorage } from "@/hooks/use-local-storage";
 
 const COLOR_SCHEME_QUERY = "(prefers-color-scheme: dark)";
-const LOCAL_STORAGE_KEY = "usehooks-ts-ternary-dark-mode";
+const LOCAL_STORAGE_KEY = "theme";
 
 export type TernaryDarkMode = "system" | "dark" | "light";
 

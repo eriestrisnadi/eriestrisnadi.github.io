@@ -11,7 +11,9 @@ interface ModeToggleProps
 }
 
 export function ModeToggle({ className, variant }: ModeToggleProps) {
-  const { setTernaryDarkMode, isDarkMode } = useTernaryDarkMode();
+  const { setTernaryDarkMode, isDarkMode } = useTernaryDarkMode({
+    defaultValue: "dark",
+  });
   const isIcon = variant === "icon";
 
   function toggleDarkMode() {
