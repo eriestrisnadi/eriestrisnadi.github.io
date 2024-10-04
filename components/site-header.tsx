@@ -1,43 +1,49 @@
-import Link from "next/link";
-import { GitHubLogoIcon } from "@radix-ui/react-icons";
+"use client";
 
-import { siteConfig } from "@/config/site";
-import { cn } from "@/lib/utils";
-import { MainNav } from "@/components/main-nav";
-import { MobileNav } from "@/components/mobile-nav";
-import { ModeToggle } from "@/components/mode-toggle";
-import { buttonVariants } from "@/components/ui/button";
+import { useEffect, useState } from "react";
+import { Cross2Icon, DotsVerticalIcon } from "@radix-ui/react-icons";
+import { HORIZONTAL, VERTICAL, type Position } from "@/lib/utils";
+import { Profile } from "@/components/profile";
+import { useMediaQuery } from "@/hooks/use-media-query";
+import { Button } from "@/components/ui/button";
 
-export function SiteHeader() {
+interface SiteHeaderProps {
+  onToggleMenu?: (value: boolean) => void;
+}
+
+export function SiteHeader({ onToggleMenu }: SiteHeaderProps) {
+  const [position, setPosition] = useState<Position>();
+  const isLargeDevice = useMediaQuery("lg");
+
+  function toggleMenu() {
+    setPosition(position === HORIZONTAL ? VERTICAL : HORIZONTAL);
+  }
+
+  useEffect(() => {
+    setPosition(!isLargeDevice ? HORIZONTAL : VERTICAL);
+  }, [isLargeDevice]);
+
+  useEffect(() => {
+    onToggleMenu?.(position !== HORIZONTAL);
+  }, [position, onToggleMenu]);
+
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container flex h-14 max-w-screen-2xl items-center">
-        <MainNav />
-        <MobileNav />
-        <div className="flex flex-1 items-center justify-between space-x-2 md:justify-end">
-          <div className="w-full flex-1 md:w-auto md:flex-none"></div>
-          <nav className="flex items-center">
-            <Link
-              href={siteConfig.links.github}
-              target="_blank"
-              rel="noreferrer"
-            >
-              <div
-                className={cn(
-                  buttonVariants({
-                    variant: "ghost",
-                  }),
-                  "w-9 px-0"
-                )}
-              >
-                <GitHubLogoIcon className="h-4 w-4" />
-                <span className="sr-only">GitHub</span>
-              </div>
-            </Link>
-            <ModeToggle />
-          </nav>
-        </div>
-      </div>
-    </header>
+    <div className="sticky top-0 z-50 border-b lg:border-none border-border/40 dark:border-border flex items-start p-4 lg:px-0 gap-4">
+      <Profile position={position} />
+      {position && (
+        <Button
+          variant="outline"
+          size="icon"
+          className="shrink-0 lg:hidden mt-2 bg-transparent"
+          onClick={toggleMenu}
+        >
+          {position === HORIZONTAL ? (
+            <DotsVerticalIcon className="w-6 h-6 animate-rise-down" />
+          ) : (
+            <Cross2Icon className="w-6 h-6 animate-rise-up" />
+          )}
+        </Button>
+      )}
+    </div>
   );
 }

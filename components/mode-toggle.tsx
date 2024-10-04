@@ -1,25 +1,48 @@
 "use client";
 
-import * as React from "react";
 import { MoonIcon, SunIcon } from "@radix-ui/react-icons";
-import { useTheme } from "next-themes";
-
 import { Button } from "@/components/ui/button";
+import { useTernaryDarkMode } from "@/hooks/use-ternary-dark-mode";
+import { cn } from "@/lib/utils";
 
-export function ModeToggle() {
-  const { setTheme, theme } = useTheme();
+interface ModeToggleProps
+  extends Partial<Pick<HTMLButtonElement, "className">> {
+  variant?: "icon";
+}
 
-  const changeTheme = () => {
-    setTheme(theme === "dark" ? "light" : "dark");
-  };
+export function ModeToggle({ className, variant }: ModeToggleProps) {
+  const { setTernaryDarkMode, isDarkMode } = useTernaryDarkMode();
+  const isIcon = variant === "icon";
+
+  function toggleDarkMode() {
+    setTernaryDarkMode(isDarkMode ? "light" : "dark");
+  }
 
   return (
-    <Button variant="ghost" size="icon" onClick={changeTheme} className="overflow-hidden relative">
-      <div className="absolute animate-rise-up dark:animate-rise-down dark:rotate-180 top-2 space-y-5">
-        <SunIcon className="h-[1.2rem] w-[1.2rem]" />
-        <MoonIcon className="h-[1.2rem] w-[1.2rem] rotate-180" />
+    <Button
+      variant="ghost"
+      size={isIcon ? "icon" : undefined}
+      onClick={toggleDarkMode}
+      className={cn("overflow-hidden relative", className)}
+    >
+      <div
+        className={cn(
+          "absolute animate-rise-up dark:animate-rise-down dark:rotate-180 top-1/2 space-y-5",
+          !isIcon && "left-2"
+        )}
+      >
+        <SunIcon className="-translate-y-1/2" />
+        <MoonIcon className="translate-y-1/2 rotate-180" />
       </div>
       <span className="sr-only">Toggle theme</span>
+      <span className={cn("ml-4 dark:hidden", isIcon && "hidden")}>
+        Light Mode
+      </span>
+      <span
+        className={cn("ml-4 hidden dark:inline-block", isIcon && "dark:hidden")}
+      >
+        Dark Mode
+      </span>
     </Button>
   );
 }
