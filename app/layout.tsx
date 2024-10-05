@@ -24,7 +24,7 @@ export default function RootLayout({
           inter.variable
         )}
       >
-        <div className="relative flex min-h-screen flex-col lg:flex-row bg-background">
+        <div className="relative flex min-h-screen flex-col lg:flex-row lg:py-4">
           {navigation ?? <NavigationHeader />}
           <main className="flex-1 flex flex-col p-8">{children}</main>
         </div>

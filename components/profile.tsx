@@ -50,7 +50,7 @@ export function Profile({ className, position = HORIZONTAL }: ProfileProps) {
         </div>
         <div
           className={cn(
-            "text-xs lg:text-sm text-neutral-600 transition-all duration-300 hover:text-neutral-700 dark:text-neutral-400 dark:hover:text-neutral-300 lg:flex",
+            "text-xs lg:text-sm transition-all duration-300 text-neutral-600 hover:text-neutral-700 dark:text-neutral-400 dark:hover:text-neutral-300 lg:flex",
             isHorizontal && "lg:text-xs"
           )}
         >

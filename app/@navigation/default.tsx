@@ -12,9 +12,9 @@ export default function NavigationHeader() {
   return (
     <header
       className={cn(
-        "space-y-2 lg:py-4 transition-all",
+        "space-y-2 lg:py-4 bg-background lg:bg-transparent lg:w-auto lg:block lg:relative z-50",
         showMenu &&
-          "fixed w-full z-50 bg-background lg:bg-transparent h-full lg:w-auto lg:block lg:relative"
+          "fixed w-full h-full"
       )}
     >
       <SiteHeader onToggleMenu={setShowMenu} />
