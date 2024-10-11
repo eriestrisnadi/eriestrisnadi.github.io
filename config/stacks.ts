@@ -16,6 +16,9 @@ export const stacks = {
   },
   Java: {
     src: "/assets/images/brands/java.svg",
+    className:
+      "[--java-primary:#e76f00] [--java-secondary:#5382a1] dark:[--java-secondary:hsl(var(--foreground))] bg-[linear-gradient(180deg,_var(--java-primary)_0%,_var(--java-primary)_55%,_var(--java-secondary)_55%,_var(--java-secondary)_100%)]",
+    asMask: true,
   },
   PHP: {
     src: "/assets/images/brands/php.svg",
@@ -49,6 +52,8 @@ export const stacks = {
   },
   "Next.js": {
     src: "/assets/images/brands/next-js.svg",
+    className: "bg-foreground",
+    asMask: true,
   },
   "Nuxt.js": {
     src: "/assets/images/brands/nuxt-js.svg",
@@ -70,6 +75,7 @@ export const stacks = {
   },
   "Express.js": {
     src: "/assets/images/brands/express.svg",
+    asMask: true,
   },
   Fastapi: {
     src: "/assets/images/brands/fastapi.svg",
@@ -79,6 +85,8 @@ export const stacks = {
   },
   Gradle: {
     src: "/assets/images/brands/gradle.svg",
+    className: "bg-cyan-400",
+    asMask: true,
   },
   Electron: {
     src: "/assets/images/brands/electron.svg",
@@ -130,12 +138,17 @@ export const stacks = {
   },
   Heroku: {
     src: "/assets/images/brands/heroku.svg",
+    className: "bg-[#430098] dark:bg-violet-500",
+    asMask: true,
   },
   "Google Cloud": {
     src: "/assets/images/brands/google-cloud.svg",
   },
   "Amazon Web Service": {
     src: "/assets/images/brands/aws.svg",
+    className:
+      "bg-[linear-gradient(0deg,_#f58219_0%,_#f58219_50%,_hsl(var(--foreground))_50%,_hsl(var(--foreground))_100%)]",
+    asMask: true,
   },
   Azure: {
     src: "/assets/images/brands/microsoft-azure.svg",
@@ -160,6 +173,8 @@ export const stacks = {
   },
   "Tailwind CSS": {
     src: "/assets/images/brands/tailwindcss.svg",
+    className: "bg-[#06B6D4]",
+    asMask: true,
   },
   "Material UI": {
     src: "/assets/images/brands/mui.svg",
@@ -181,6 +196,7 @@ export const stacks = {
   },
   Markdown: {
     src: "/assets/images/brands/markdown.svg",
+    asMask: true,
   },
   bash: {
     src: "/assets/images/brands/bash.svg",
