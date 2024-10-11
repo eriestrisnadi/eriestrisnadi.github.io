@@ -1,8 +1,9 @@
 "use client";
 
 import React, { useState } from "react";
-import NextImage, { ImageProps as NextImageProps } from "next/image";
+import NextImage, { type ImageProps as NextImageProps } from "next/image";
 import { cva, type VariantProps } from "class-variance-authority";
+import { cn } from "@/lib/utils";
 
 const imageVariants = cva("", {
   variants: {
@@ -15,8 +16,6 @@ const imageVariants = cva("", {
     variant: "default",
   },
 });
-
-import { cn } from "@/lib/utils";
 
 export interface ImageProps
   extends NextImageProps,
