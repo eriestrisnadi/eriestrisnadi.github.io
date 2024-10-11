@@ -2,8 +2,8 @@
 
 import { MoonIcon, SunIcon } from "@radix-ui/react-icons";
 import { Button } from "@/components/ui/button";
-import { useTernaryDarkMode } from "@/hooks/use-ternary-dark-mode";
 import { cn } from "@/lib/utils";
+import { useTernaryDarkMode } from "@/hooks/use-ternary-dark-mode";
 
 interface ModeToggleProps
   extends Partial<Pick<HTMLButtonElement, "className">> {
@@ -11,9 +11,7 @@ interface ModeToggleProps
 }
 
 export function ModeToggle({ className, variant }: ModeToggleProps) {
-  const { setTernaryDarkMode, isDarkMode } = useTernaryDarkMode({
-    defaultValue: "dark",
-  });
+  const { setTernaryDarkMode, isDarkMode } = useTernaryDarkMode();
   const isIcon = variant === "icon";
 
   function toggleDarkMode() {
