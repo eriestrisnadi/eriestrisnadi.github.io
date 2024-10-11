@@ -15,3 +15,9 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 export const twc = resolveConfig(tailwindConfig);
+
+export function resolveUrl(value: string, baseUrl: string = "/") {
+  return value.startsWith("http") || value.startsWith("/")
+    ? value
+    : [baseUrl, value].join("/");
+}
