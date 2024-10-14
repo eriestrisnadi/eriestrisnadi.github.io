@@ -21,3 +21,23 @@ export function resolveUrl(value: string, baseUrl: string = "/") {
     ? value
     : [baseUrl, value].join("/");
 }
+
+export const wait = (ms: number) =>
+  new Promise((resolve) => setTimeout(resolve, ms));
+
+export function chunks<T extends any[]>(list: T, size = list.length / 2) {
+  return [...Array(Math.ceil(list.length / size))].map((_) =>
+    list.splice(0, size)
+  );
+}
+
+export function isEvenValue<
+  Even extends any = boolean,
+  Odd extends any = boolean
+>(
+  value: number,
+  evenAsValue: Even = true as Even,
+  oddAsValue: Odd = false as Odd
+) {
+  return value % 2 == 0 ? evenAsValue : oddAsValue;
+}
