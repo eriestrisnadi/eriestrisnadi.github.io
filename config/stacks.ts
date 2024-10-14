@@ -212,6 +212,8 @@ export const stacks = {
   },
   "macOS / iOS": {
     src: "/assets/images/brands/apple.svg",
+    className: "bg-black dark:bg-white",
+    asMask: true,
   },
   Android: {
     src: "/assets/images/brands/android.svg",
