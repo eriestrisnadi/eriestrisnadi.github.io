@@ -2,14 +2,16 @@ import type { Metadata, Viewport } from "next";
 import pkg from "@/package.json";
 
 export const siteConfig = {
-  name: pkg.author?.name ?? 'Personal Website',
+  name: pkg.author?.name ?? "Personal Website",
   description: "Let's think about it later",
   url: pkg.homepage,
   ogImage: "",
-  author: {
-    email: pkg.author?.email,
-    username: "eriestrisnadi",
-  },
+  author: Object.assign(
+    {
+      username: "eriestrisnadi",
+    },
+    pkg.author
+  ),
   links: {
     avatar: "https://avatars.githubusercontent.com/u/11029687?v=4",
     github: "https://github.com/eriestrisnadi",
