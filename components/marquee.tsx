@@ -1,7 +1,12 @@
 "use client";
 
 import React, { useRef, useEffect } from "react";
-import { motion, useSpring, type PanInfo, type MotionValue } from "framer-motion";
+import {
+  motion,
+  useSpring,
+  type DragHandlers,
+  type MotionValue,
+} from "framer-motion";
 import normalizeWheel from "normalize-wheel";
 import { useWindowSize } from "usehooks-ts";
 import { useRafLoop } from "@/hooks/use-raf-loop";
@@ -50,19 +55,19 @@ export default function Marquee({
     }, 30);
   };
 
-  const handleDragStart = () => {
+  const handleDragStart: DragHandlers["onDragStart"] = () => {
     slowDown.current = true;
     marqueeRef.current?.classList.add("drag");
     speedSpring.set(0);
   };
 
-  const handleOnDrag = (_, info: PanInfo) => {
+  const handleOnDrag: DragHandlers["onDrag"] = (_, info) => {
     speedSpring.set(
       dragFactor * (direction === "right" ? info.delta.x : -info.delta.x)
     );
   };
 
-  const handleDragEnd = (_) => {
+  const handleDragEnd: DragHandlers["onDragEnd"] = () => {
     slowDown.current = false;
     marqueeRef.current?.classList.remove("drag");
     //rest to the original speed
