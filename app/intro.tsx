@@ -6,6 +6,7 @@ import { siteConfig } from "@/config/site";
 
 export default function Intro() {
   const [alias] = (siteConfig.author.name ?? "").split(" ");
+  const yearSpent = new Date().getFullYear() - siteConfig.since;
 
   return (
     <>
@@ -47,7 +48,7 @@ export default function Intro() {
       >
         A dedicated Senior Software Engineer, Technical Team Lead, and seasoned
         freelancer with a passion for crafting cutting-edge web platforms and
-        hybrid mobile applications. With over 9+ years of professional
+        hybrid mobile applications. With over {yearSpent}+ years of professional
         experience, I have honed my skills in both technical excellence and
         effective team management.
       </motion.p>

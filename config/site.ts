@@ -6,6 +6,7 @@ export const siteConfig = {
   description: "Let's think about it later",
   url: pkg.homepage,
   ogImage: "",
+  since: 2014,
   author: Object.assign(
     {
       username: "eriestrisnadi",
