@@ -23,7 +23,7 @@ export function ModeToggle({ className, variant }: ModeToggleProps) {
       variant="ghost"
       size={isIcon ? "icon" : undefined}
       onClick={toggleDarkMode}
-      className={cn("overflow-hidden relative", className)}
+      className={cn("bg-background overflow-hidden relative", className)}
     >
       <div
         className={cn(
