@@ -12,7 +12,7 @@ export default function NavigationHeader() {
   return (
     <header
       className={cn(
-        "space-y-2 lg:py-4 bg-background lg:bg-transparent lg:w-1/5 shrink-0 lg:block lg:relative z-50",
+        "sticky top-0 space-y-2 lg:py-4 bg-background lg:bg-transparent lg:w-1/5 shrink-0 lg:block lg:sticky lg:top-4 z-50",
         showMenu &&
           "fixed w-full h-full"
       )}

@@ -28,7 +28,7 @@ export function SiteHeader({ onToggleMenu }: SiteHeaderProps) {
   }, [position, onToggleMenu]);
 
   return (
-    <div className="sticky top-0 z-50 border-b lg:border-none border-border/40 dark:border-border flex items-start p-4 lg:px-0 gap-4">
+    <div className="border-b lg:border-none border-border/40 dark:border-border flex items-start p-4 lg:px-0 gap-4">
       <Profile position={position} />
       {position && (
         <Button
