@@ -1,7 +1,7 @@
 import Stagger from "@/components/stagger";
 import Divider from "@/components/divider";
-import Intro from "./intro";
-import TechStack from "./tech-stack";
+import Intro from "@/app/(main)/intro";
+import TechStack from "@/app/(main)/tech-stack";
 
 export default function HomePage() {
   return (

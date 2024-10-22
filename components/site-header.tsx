@@ -1,11 +1,10 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Cross2Icon, DotsVerticalIcon } from "@radix-ui/react-icons";
 import { HORIZONTAL, VERTICAL, type Position } from "@/lib/utils";
 import { Profile } from "@/components/profile";
+import MenuToggle from "@/components/menu-toggle";
 import { useMediaQuery } from "@/hooks/use-media-query";
-import { Button } from "@/components/ui/button";
 
 interface SiteHeaderProps {
   onToggleMenu?: (value: boolean) => void;
@@ -30,20 +29,11 @@ export function SiteHeader({ onToggleMenu }: SiteHeaderProps) {
   return (
     <div className="border-b lg:border-none border-border/40 dark:border-border flex items-start p-4 lg:px-0 gap-4">
       <Profile position={position} />
-      {position && (
-        <Button
-          variant="outline"
-          size="icon"
-          className="shrink-0 lg:hidden mt-2 bg-transparent"
-          onClick={toggleMenu}
-        >
-          {position === HORIZONTAL ? (
-            <DotsVerticalIcon className="w-6 h-6 animate-rise-down" />
-          ) : (
-            <Cross2Icon className="w-6 h-6 animate-rise-up" />
-          )}
-        </Button>
-      )}
+      <MenuToggle
+        onClick={toggleMenu}
+        value={position !== HORIZONTAL}
+        className="mt-2"
+      />
     </div>
   );
 }

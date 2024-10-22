@@ -33,7 +33,8 @@ export function Navigation({
               variant="ghost"
               className={cn(
                 "justify-start w-full space-x-2",
-                pathname === item.href && "bg-accent text-accent-foreground"
+                pathname === item.href && "bg-accent text-accent-foreground",
+                isHorizontal && "justify-center"
               )}
             >
               <Link href={item.href}>
