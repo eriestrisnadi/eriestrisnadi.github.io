@@ -1,5 +1,5 @@
 import Stagger from "@/components/stagger";
-import Divider from "@/components/divider";
+import Divider from "@/components/ui/divider";
 import Intro from "@/app/(main)/intro";
 import TechStack from "@/app/(main)/tech-stack";
 
