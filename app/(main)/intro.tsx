@@ -11,47 +11,49 @@ export default function Intro() {
   return (
     <>
       <div className="space-y-3">
-        <div className="flex gap-2 text-2xl font-medium lg:text-3xl">
-          <h1>
+        <div className="flex gap-2 text-3xl font-bold lg:text-4xl">
+          <h2>
             <motion.span variants={fadeLeft} className="inline-flex">
-              Hi,
+              I&apos;m
             </motion.span>{" "}
             <motion.span variants={fadeLeft} className="inline-flex">
-              I&apos;m {alias}
+              a
+            </motion.span>{" "}
+            <motion.span
+              variants={fadeLeft}
+              className="text-primary inline-flex"
+            >
+              software engineer
+            </motion.span>{" "}
+            <br className="lg:hidden" />
+            <motion.span variants={fadeLeft} className="inline-flex">
+              when
+            </motion.span>{" "}
+            <br className="hidden lg:block" />
+            <motion.span variants={fadeLeft} className="inline-flex">
+              my wife
+            </motion.span>{" "}
+            <motion.span
+              variants={fadeLeft}
+              className="text-primary inline-flex"
+            >
+              allows it.
             </motion.span>
-          </h1>
-          <motion.div variants={fadeLeft} animate={wave} className="ml-0.5">
-            👋
-          </motion.div>
-        </div>
-        <div className="space-y-4">
-          <ul className="ml-5 flex list-disc flex-col gap-1 lg:flex-row lg:gap-10">
-            <motion.li
-              variants={fadeLeft}
-              className="text-neutral-600 hover:text-neutral-700 dark:text-neutral-400 dark:hover:text-neutral-300"
-            >
-              Based in Bandung, Indonesia <span className="ml-1">🇮🇩</span>
-            </motion.li>
-            <motion.li
-              variants={fadeLeft}
-              className="text-neutral-600 hover:text-neutral-700 dark:text-neutral-400 dark:hover:text-neutral-300"
-            >
-              Working remotely
-            </motion.li>
-          </ul>
+          </h2>
         </div>
       </div>
 
-      <motion.p
+      <motion.h4
         variants={fadeUp}
         className="mt-6 leading-[1.8] md:leading-loose"
       >
-        A dedicated Senior Software Engineer, Technical Team Lead, and seasoned
-        freelancer with a passion for crafting cutting-edge web platforms and
-        hybrid mobile applications. With over {yearSpent}+ years of professional
-        experience, I have honed my skills in both technical excellence and
-        effective team management.
-      </motion.p>
+        Meet {alias}, a dedicated Senior Software Engineer and Technical Team
+        Lead, who&apos;s been taming code and herding cats (also known as
+        developers) for over {yearSpent}+ years. With a knack for crafting
+        cutting-edge web platforms and hybrid mobile apps, I turn caffeine into
+        code while juggling deadlines and the occasional snack break. My
+        technical skills shine as brightly as my collection of funny cat memes!
+      </motion.h4>
     </>
   );
 }
