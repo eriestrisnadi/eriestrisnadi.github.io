@@ -4,14 +4,16 @@ import ArticleCard from "@/components/article-card";
 import { cn } from "@/lib/utils";
 import { fadeLeft } from "@/lib/animation";
 import { fetcher } from "@/lib/fetcher";
+import { GET } from "@/app/(data)/blog/recent-posts.json/route";
 import type { Post } from "@/app/(resources)/blog/types";
 
 const twoSpans = [0, 3];
 
 export default async function Posts() {
-  const posts = await fetcher<Post[]>(
+  // TODO: needs refactor
+  const posts: Post[] = await fetcher<Post[]>(
     `${process.env.NEXT_PUBLIC_BASE_URL}/blog/recent-posts.json`
-  );
+  ).catch(() => fetcher(GET()));
 
   return (
     <motion.div variants={fadeLeft} className="space-y-6">

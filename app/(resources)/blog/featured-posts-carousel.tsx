@@ -4,12 +4,14 @@ import Divider from "@/components/ui/divider";
 import { fadeLeft } from "@/lib/animation";
 import { cn } from "@/lib/utils";
 import { fetcher } from "@/lib/fetcher";
+import { GET } from "@/app/(data)/blog/featured-posts.json/route";
 import type { Post } from "@/app/(resources)/blog/types";
 
 export default async function FeaturedPostsCarousel() {
-  const posts = await fetcher<Post[]>(
+  // TODO: needs refactor
+  const posts: Post[] = await fetcher<Post[]>(
     `${process.env.NEXT_PUBLIC_BASE_URL}/blog/featured-posts.json`
-  );
+  ).catch(() => fetcher(GET()));
 
   return (
     <>
