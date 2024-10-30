@@ -30,10 +30,9 @@ export function Navigation({
             <Button
               key={item.href}
               asChild
-              variant="ghost"
+              variant={pathname === item.href ? "steam" : "ghost"}
               className={cn(
                 "justify-start w-full space-x-2",
-                pathname === item.href && "bg-accent text-accent-foreground",
                 isHorizontal && "justify-center"
               )}
             >

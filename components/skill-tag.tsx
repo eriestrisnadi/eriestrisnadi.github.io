@@ -31,7 +31,7 @@ export default function SkillTag({
   return (
     <div
       className={cn(
-        "flex w-max items-center gap-2 rounded-full border border-border bg-accent px-5 py-2 text-[15px] shadow-sm",
+        "flex w-max items-center gap-2 rounded-full border border-border from-accent/30 from-40% dark:to-transparent to-accent bg-gradient-to-tr px-5 py-2 text-[15px] bg-clip-padding backdrop-filter backdrop-blur-md shadow-sm",
         className
       )}
       {...restProps}
