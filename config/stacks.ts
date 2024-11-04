@@ -120,6 +120,7 @@ export const stacks = {
   },
   Vercel: {
     src: "/assets/images/brands/vercel.svg",
+    asMask: true,
   },
   Netlify: {
     src: "/assets/images/brands/netlify.svg",
@@ -184,6 +185,7 @@ export const stacks = {
   },
   Github: {
     src: "/assets/images/brands/github.svg",
+    asMask: true,
   },
   Gitlab: {
     src: "/assets/images/brands/gitlab.svg",
