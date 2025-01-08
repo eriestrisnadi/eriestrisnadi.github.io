@@ -1,9 +1,8 @@
-import MainLayout from "@/app/(main)/layout";
-import NavigationHeader from "@/app/(main)/@navigation/default";
+import RouteLayout from "@/app/route-layout";
 
 export default function Page() {
   return (
-    <MainLayout navigation={<NavigationHeader />}>
+    <RouteLayout>
       <div className="container flex-1 flex items-center justify-center">
         <div>
           <h1 className="inline-block mr-5 pr-6 text-2xl font-medium align-top border-r border-current">
@@ -14,6 +13,6 @@ export default function Page() {
           </div>
         </div>
       </div>
-    </MainLayout>
+    </RouteLayout>
   );
 }
