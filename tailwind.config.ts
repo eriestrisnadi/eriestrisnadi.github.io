@@ -10,6 +10,7 @@ const config = {
     "./src/**/*.{ts,tsx}",
     "./hooks/**/*.{ts,tsx}",
     "./config/**/*.{ts,tsx}",
+    "./contents/blog/**/*.mdx",
   ],
   prefix: "",
   theme: {
@@ -88,9 +89,35 @@ const config = {
         "rise-down": "rise-down 0.4s ease-out",
         "rise-up": "rise-up 0.4s ease-out",
       },
+      typography: {
+        DEFAULT: {
+          css: {
+            "--tw-prose-body": "hsl(var(--foreground))",
+            "--tw-prose-headings": "hsl(var(--foreground))",
+            "--tw-prose-links": "hsl(var(--primary))",
+            "--tw-prose-bold": "hsl(var(--foreground))",
+            "--tw-prose-bullets": "hsl(var(--muted-foreground))",
+            "--tw-prose-hr": "hsl(var(--muted))",
+            "--tw-prose-quotes": "hsl(var(--muted-foreground))",
+            "--tw-prose-quote-borders": "hsl(var(--muted))",
+            "--tw-prose-kbd": "hsl(var(--foreground))",
+            "--tw-prose-kbd-shadows": "var(--foreground)",
+            "--tw-prose-code": "hsl(var(--accent-foreground))",
+            "--tw-prose-pre-code": "hsl(var(--accent-foreground))",
+            "--tw-prose-pre-bg": "hsl(var(--accent))",
+            "--tw-prose-th-borders": "hsl(var(--border))",
+            "--tw-prose-td-borders": "hsl(var(--border))",
+
+            kbd: {
+              boxShadow:
+                "0 0 0 1px hsl(var(--tw-prose-kbd-shadows) / 10%), 0 3px 0 hsl(var(--tw-prose-kbd-shadows) / 10%)",
+            },
+          },
+        },
+      },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [require("tailwindcss-animate"), require("@tailwindcss/typography")],
 } satisfies Config;
 
 export default config;

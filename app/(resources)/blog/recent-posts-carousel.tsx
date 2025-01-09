@@ -19,14 +19,11 @@ export default async function RecentPostsCarousel() {
         containerActionProps={{ className: cn(!posts?.length && "hidden") }}
       >
         {!posts?.length && <p className="text-center">No articles yet</p>}
-        {posts?.map(({ title, tags, cover, createdAt }) => (
+        {posts?.map(({ slug, ...postProps }) => (
           <ArticleCard
-            key={`${title}-${createdAt.toString()}`}
-            title={title}
-            cover={cover}
-            href="/"
-            tags={tags}
-            createdAt={createdAt}
+            {...postProps}
+            key={`${postProps.title}-${postProps.createdAt.toString()}`}
+            href={`/blog/${slug}`}
           />
         ))}
       </Carousel>

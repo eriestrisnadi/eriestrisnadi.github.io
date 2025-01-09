@@ -1,20 +1,14 @@
-import { cwd } from "node:process";
-import { join } from "node:path";
+import { join, parse } from "node:path";
 import { existsSync, readdirSync } from "node:fs";
 
-export function getFileContents(slug: string, extension?: string) {
-  const dirPath = join(cwd(), "contents", slug);
-
-  if (!existsSync(dirPath)) {
+export function getFileContents(path: string, extension?: string) {
+  if (!existsSync(path)) {
     return [];
   }
 
-  const files = readdirSync(dirPath).map((name) => ({
-    name,
-    filePath: join(dirPath, name),
-  }));
+  const files = readdirSync(path).map((name) => parse(join(path, name)));
 
   if (typeof extension !== "string") return files;
 
-  return files.filter(({ name }) => name.endsWith(extension));
+  return files.filter((file) => file.ext === extension);
 }

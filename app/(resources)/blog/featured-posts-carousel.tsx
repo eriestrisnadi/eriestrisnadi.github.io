@@ -25,14 +25,11 @@ export default async function FeaturedPostsCarousel() {
             "mt-0 [&>button]:absolute [&>button>svg]:w-8 [&>button>svg]:h-8 [&>button]:top-1/2 [&>button]:-translate-y-1/2 [&>button]:h-full [&>button]:from-background [&>button]:-from-50% [&>button]:to-75% [&>button]:rounded-none hover:[&>button]:bg-transparent [&>button]:w-20 first-of-type:[&>button]:left-8 first-of-type:hover:[&>button]:bg-gradient-to-r last-of-type:[&>button]:right-8 last-of-type:hover:[&>button]:bg-gradient-to-l",
         }}
       >
-        {posts?.map(({ title, tags, cover, createdAt }) => (
+        {posts?.map(({ slug, readTime, ...postProps }) => (
           <ArticleCard
-            key={`${title}-${createdAt.toString()}`}
-            title={title}
-            cover={cover}
-            href="/"
-            tags={tags}
-            createdAt={createdAt}
+            {...postProps}
+            key={`${postProps.title}-${postProps.createdAt.toString()}`}
+            href={`/blog/${slug}`}
             linkProps={{ className: "w-full shrink-0" }}
             containerProps={{ className: "w-full h-96" }}
             imageProps={{ className: "h-auto bottom-1/2 translate-y-1/2" }}

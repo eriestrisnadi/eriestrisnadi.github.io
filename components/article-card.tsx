@@ -1,5 +1,6 @@
 import type { HTMLAttributes } from "react";
 import Link, { type LinkProps } from "next/link";
+import { format as durationFormat } from "timeago.js";
 import SectionHeading from "@/components/section-heading";
 import SectionSubHeading from "@/components/section-sub-heading";
 import { Card } from "@/components/ui/card";
@@ -7,7 +8,9 @@ import { Image, type ImageProps } from "@/components/ui/image";
 import { cn } from "@/lib/utils";
 import type { Post } from "@/app/(resources)/blog/types";
 
-interface ArticleCardProps extends Post {
+interface ArticleCardProps extends Omit<Post, "slug" | "readTime"> {
+  href: LinkProps["href"];
+  readTime?: Post["readTime"] | string;
   linkProps?: Omit<
     Omit<HTMLAttributes<HTMLAnchorElement>, keyof LinkProps> & LinkProps,
     "children" | "href"
@@ -22,8 +25,10 @@ function ArticleCard({
   title,
   cover,
   createdAt,
+  publishedAt: theirPublishedAt,
   href: theirHref,
   tags,
+  readTime,
   linkProps: {
     href = theirHref,
     className: linkClassName,
@@ -39,6 +44,8 @@ function ArticleCard({
     ...restImageProps
   } = {} as ImageProps,
 }: ArticleCardProps) {
+  const publishedAt = theirPublishedAt ?? createdAt;
+
   return (
     <Link key={title} href={href} className={linkClassName} {...restLinkProps}>
       <Card
@@ -48,17 +55,19 @@ function ArticleCard({
         )}
         {...restContainerProps}
       >
-        <Image
-          src={src}
-          width={width}
-          height={height}
-          alt={alt}
-          className={cn(
-            "absolute h-full w-full transform object-cover object-left transition-transform duration-300 group-hover:scale-125 group-hover:rotate-12",
-            imageClassName
-          )}
-          {...restImageProps}
-        />
+        {src && (
+          <Image
+            src={src}
+            width={width}
+            height={height}
+            alt={alt}
+            className={cn(
+              "absolute h-full w-full transform object-cover object-center transition-transform duration-300 group-hover:scale-[2.5] lg:group-hover:scale-125 group-hover:rotate-12 scale-[1.75] lg:scale-100",
+              imageClassName
+            )}
+            {...restImageProps}
+          />
+        )}
         <div className="absolute bg-background/50 w-full h-full group-hover:bg-transparent transition-colors"></div>
         <div className="absolute flex flex-col justify-between w-full h-full space-y-5 p-5">
           <div className="flex flex-wrap gap-2">
@@ -76,10 +85,16 @@ function ArticleCard({
               {title}
             </SectionHeading>
             <SectionSubHeading className='text-sm text-foreground/70 inline-flex w-max relative z-0 transition-colors after:content-[""] after:w-0 after:h-2/3 after:inline after:absolute after:left-0 after:top-1/3 after:bg-foreground after:-z-10 after:skew-10 after:transition-[width] group-hover:after:delay-150 group-hover:text-background group-hover:after:w-[calc(100%+1rem)]'>
-              {(createdAt instanceof Date
-                ? createdAt
-                : new Date(createdAt)
-              ).toISOString()}
+              {[
+                durationFormat(
+                  publishedAt instanceof Date
+                    ? publishedAt
+                    : new Date(publishedAt)
+                ),
+                typeof readTime == "string" ? readTime : readTime?.text,
+              ]
+                .filter((v) => !!v)
+                .join(" | ")}
             </SectionSubHeading>
           </div>
         </div>

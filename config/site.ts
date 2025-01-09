@@ -1,5 +1,5 @@
-import type { Metadata, Viewport } from "next";
 import pkg from "@/package.json";
+import type { Metadata, Viewport } from "next";
 
 export const siteConfig = {
   name: pkg.author?.name ?? "Personal Website",
@@ -134,3 +134,8 @@ export const viewport = {
     { media: "(prefers-color-scheme: dark)", color: "black" },
   ],
 } satisfies Viewport;
+
+export const blogConfig = {
+  wordsPerMinute: 265,
+  contentPath: "/contents/blog",
+};

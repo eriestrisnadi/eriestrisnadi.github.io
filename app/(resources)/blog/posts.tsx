@@ -20,14 +20,11 @@ export default async function Posts() {
       <SectionHeading>My latest articles</SectionHeading>
       {!posts?.length && <p className="text-center">No articles yet</p>}
       <div className="grid auto-rows-[20rem] grid-cols-1 md:grid-cols-3 gap-4 mx-auto">
-        {posts?.map(({ title, tags, cover, createdAt }, postIndex) => (
+        {posts?.map(({ slug, ...postProps }, postIndex) => (
           <ArticleCard
-            key={`${title}-${createdAt.toString()}`}
-            title={title}
-            cover={cover}
-            href="/"
-            tags={tags}
-            createdAt={createdAt}
+            {...postProps}
+            key={`${postProps.title}-${postProps.createdAt.toString()}`}
+            href={`/blog/${slug}`}
             linkProps={{
               className: cn(twoSpans.includes(postIndex) && "md:col-span-2"),
             }}

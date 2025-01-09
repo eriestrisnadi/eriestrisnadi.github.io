@@ -5,9 +5,9 @@ export default function ResourcesLayout({
   children,
 }: PropsWithChildren<{ navigation: ReactNode }>) {
   return (
-    <div className="relative flex min-h-screen flex-col lg:py-4">
+    <div className="relative flex min-h-screen flex-col lg:pb-4">
       {navigation}
-      <main className="flex-1 flex flex-col p-8 overflow-x-hidden">
+      <main className="flex-1 flex flex-col p-6 lg:p-8 overflow-x-hidden">
         {children}
       </main>
     </div>
