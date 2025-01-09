@@ -5,8 +5,11 @@ import tailwindConfig from "@/tailwind.config";
 
 export const HORIZONTAL: "horizontal" = "horizontal";
 export const VERTICAL: "vertical" = "vertical";
+export const ASCENDING: "asc" = "asc";
+export const DESCENDING: "desc" = "desc";
 
 export type Position = typeof HORIZONTAL | typeof VERTICAL;
+export type SortBy = typeof ASCENDING | typeof DESCENDING;
 
 export const IS_SERVER = typeof window === "undefined";
 
@@ -40,4 +43,25 @@ export function isEvenValue<
   oddAsValue: Odd = false as Odd
 ) {
   return value % 2 == 0 ? evenAsValue : oddAsValue;
+}
+
+export function compareDate(
+  dateLeft: Date | string,
+  dateRight: Date | string,
+  sortBy: SortBy = DESCENDING
+): number {
+  const diff =
+    +(dateLeft instanceof Date ? dateLeft : new Date(dateLeft)) -
+    +(dateRight instanceof Date ? dateRight : new Date(dateRight));
+
+  if (sortBy === ASCENDING) {
+    if (diff < 0) return -1;
+    else if (diff > 0) return 1;
+  } else {
+    if (diff > 0) return -1;
+    else if (diff < 0) return 1;
+  }
+
+  // Return 0 if diff is 0; return NaN if diff is NaN
+  return diff;
 }

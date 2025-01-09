@@ -134,8 +134,3 @@ export const viewport = {
     { media: "(prefers-color-scheme: dark)", color: "black" },
   ],
 } satisfies Viewport;
-
-export const blogConfig = {
-  wordsPerMinute: 265,
-  contentPath: "/contents/blog",
-};

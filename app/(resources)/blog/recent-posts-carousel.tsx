@@ -1,13 +1,13 @@
-import { blogConfig } from "@/config/site";
 import ArticleCard from "@/components/article-card";
 import Carousel from "@/components/ui/carousel";
 import { fadeLeft } from "@/lib/animation";
-import { getMdxMatters } from "@/lib/mdx";
-import { cn } from "@/lib/utils";
-import type { Post } from "@/app/(resources)/blog/types";
+import { cn, compareDate } from "@/lib/utils";
+import { allPosts } from "@/contents";
 
 export default async function RecentPostsCarousel() {
-  const posts: Post[] = await getMdxMatters<Post>(blogConfig.contentPath);
+  const posts = allPosts.sort(({ publishedAt: a }, { publishedAt: b }) =>
+    compareDate(a, b)
+  );
 
   return (
     <>
@@ -16,11 +16,11 @@ export default async function RecentPostsCarousel() {
         containerActionProps={{ className: cn(!posts?.length && "hidden") }}
       >
         {!posts?.length && <p className="text-center">No articles yet</p>}
-        {posts?.map(({ slug, ...postProps }) => (
+        {posts?.map(({ url, ...postProps }) => (
           <ArticleCard
             {...postProps}
-            key={`${postProps.title}-${postProps.createdAt.toString()}`}
-            href={`/blog/${slug}`}
+            key={`${postProps.title}-${postProps.publishedAt}`}
+            href={url}
           />
         ))}
       </Carousel>
