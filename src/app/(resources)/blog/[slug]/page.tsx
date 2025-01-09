@@ -1,10 +1,14 @@
 import { notFound } from "next/navigation";
 import { getMDXComponent } from "next-contentlayer/hooks";
-import { format as durationFormat } from "timeago.js";
 import { Image } from "@/components/ui/image";
 import { allPosts } from "@/contents";
+import PostHeader from "./header";
 
-export default async function Post({ params }: { params: { slug: string } }) {
+export default async function PostPage({
+  params,
+}: {
+  params: { slug: string };
+}) {
   const post = allPosts.find(({ stem }) => stem === params.slug);
 
   if (!post) notFound();
@@ -13,15 +17,11 @@ export default async function Post({ params }: { params: { slug: string } }) {
 
   return (
     <article className="prose prose-sm transition-colors mx-auto">
-      <div>
-        <h1 className="text-2xl lg:text-3xl capitalize font-bold">
-          {post.title}
-        </h1>
-        <p className="flex justify-between text-muted-foreground my-0">
-          <span>{post.readTime}</span>
-          <span>{durationFormat(post.publishedAt)}</span>
-        </p>
-      </div>
+      <PostHeader
+        title={post.title}
+        readTime={post.readTime}
+        publishedAt={post.publishedAt}
+      />
       <hr className="my-5" />
       {post.cover && (
         <Image
