@@ -1,14 +1,15 @@
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getMDXComponent } from "next-contentlayer/hooks";
 import { Image } from "@/components/ui/image";
 import { allPosts } from "@/contents";
 import PostHeader from "./header";
 
-export default async function PostPage({
-  params,
-}: {
+export interface PostPageProps {
   params: { slug: string };
-}) {
+}
+
+export default async function PostPage({ params }: PostPageProps) {
   const post = allPosts.find(({ stem }) => stem === params.slug);
 
   if (!post) notFound();
@@ -35,6 +36,36 @@ export default async function PostPage({
       <Content />
     </article>
   );
+}
+
+export function generateMetadata({ params }: PostPageProps): Metadata {
+  const post = allPosts.find(({ stem }) => stem === params.slug);
+
+  if (!post) return {};
+
+  const { excerpt: description, publishedAt, tags, author, cover } = post;
+  const title = { absolute: post.title };
+
+  return {
+    title,
+    description,
+    openGraph: {
+      type: "article",
+      locale: "en_US",
+      title,
+      description,
+      tags,
+      publishedTime: new Date(publishedAt).toISOString(),
+      authors: author ? [author] : undefined,
+      images: cover,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: cover,
+    },
+  };
 }
 
 export async function generateStaticParams() {
