@@ -30,6 +30,7 @@ export async function getMdxMatters<TFrontmatter = Record<string, unknown>>(
           readTime: readingTime(source, {
             wordsPerMinute: blogConfig.wordsPerMinute,
           }),
+          source: vfile,
         },
         (vfile.data.matter ?? {}) as TFrontmatter
       );

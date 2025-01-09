@@ -1,17 +1,16 @@
+import { blogConfig } from "@/config/site";
 import ArticleCard from "@/components/article-card";
 import Carousel from "@/components/ui/carousel";
 import Divider from "@/components/ui/divider";
 import { fadeLeft } from "@/lib/animation";
+import { getMdxMatters } from "@/lib/mdx";
 import { cn } from "@/lib/utils";
-import { fetcher } from "@/lib/fetcher";
-import { GET } from "@/app/(data)/blog/featured-posts.json/route";
 import type { Post } from "@/app/(resources)/blog/types";
 
 export default async function FeaturedPostsCarousel() {
-  // TODO: needs refactor
-  const posts: Post[] = await fetcher<Post[]>(
-    `${process.env.NEXT_PUBLIC_BASE_URL}/blog/featured-posts.json`
-  ).catch(() => fetcher(GET()));
+  const posts: Post[] = (
+    await getMdxMatters<Post>(blogConfig.contentPath)
+  ).filter(({ featured }) => featured);
 
   return (
     <>
