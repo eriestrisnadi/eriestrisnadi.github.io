@@ -36,8 +36,8 @@ export function useRafLoop(
           }
         },
         (): boolean => rafActivity.current, // isActive
-        // eslint-disable-next-line react-hooks/exhaustive-deps
       ] as RafLoopReturns,
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     []
   );
 

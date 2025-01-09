@@ -17,6 +17,7 @@ export default function NavigationHeader() {
 
   useEffect(() => {
     setShowMenu(isInitial || isLargeDevice);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isLargeDevice]);
 
   return (

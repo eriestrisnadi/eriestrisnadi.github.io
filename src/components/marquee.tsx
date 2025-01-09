@@ -183,6 +183,7 @@ function MarqueeItem({
 
   useEffect(() => {
     loopStart();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

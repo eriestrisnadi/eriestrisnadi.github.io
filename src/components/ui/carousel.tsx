@@ -32,6 +32,7 @@ function Carousel({
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const checkScrollAbility = () => {
     if (ref.current) {
       const { scrollLeft, scrollWidth, clientWidth } = ref.current;

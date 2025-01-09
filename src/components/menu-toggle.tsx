@@ -28,6 +28,7 @@ const MenuToggle = forwardRef<HTMLButtonElement, MenuToggleProps>(
       if ("value" in restProps) {
         setValue(restProps.value || false);
       }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [restProps.value]);
 
     return (
