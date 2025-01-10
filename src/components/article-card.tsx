@@ -1,10 +1,10 @@
 import Link, { type LinkProps } from "next/link";
-import { format as durationFormat } from "timeago.js";
 import SectionHeading from "@/components/section-heading";
 import SectionSubHeading from "@/components/section-sub-heading";
 import { Card } from "@/components/ui/card";
 import { Image, type ImageProps } from "@/components/ui/image";
 import { cn } from "@/lib/utils";
+import TimeAgo from "@/components/time-ago";
 import type { HTMLAttributes } from "react";
 import type { ReadTimeResults } from "reading-time";
 import type { Post } from "@/contents";
@@ -82,13 +82,12 @@ function ArticleCard({
             <SectionHeading className='inline-flex w-max relative z-0 transition-colors after:content-[""] after:w-0 after:h-2/3 after:inline after:absolute after:left-0 after:top-1/3 after:bg-foreground after:-z-10 after:skew-10 after:transition-all group-hover:text-background group-hover:after:w-[calc(100%+1rem)]'>
               {title}
             </SectionHeading>
-            <SectionSubHeading className='text-sm text-foreground/70 inline-flex w-max relative z-0 transition-colors after:content-[""] after:w-0 after:h-2/3 after:inline after:absolute after:left-0 after:top-1/3 after:bg-foreground after:-z-10 after:skew-10 after:transition-[width] group-hover:after:delay-150 group-hover:text-background group-hover:after:w-[calc(100%+1rem)]'>
-              {[
-                durationFormat(new Date(publishedAt)),
-                typeof readTime == "string" ? readTime : readTime?.text,
-              ]
-                .filter((v) => !!v)
-                .join(" | ")}
+            <SectionSubHeading className='text-sm text-foreground/70 inline-flex w-max relative z-0 transition-colors after:content-[""] after:w-0 after:h-2/3 after:inline after:absolute after:left-0 after:top-1/3 after:bg-foreground after:-z-10 after:skew-10 after:transition-[width] group-hover:after:delay-150 group-hover:text-background group-hover:after:w-[calc(100%+1rem)] space-x-2 items-center'>
+              <TimeAgo date={publishedAt} />
+              <span className="text-xs">&bull;</span>
+              <span>
+                {typeof readTime == "string" ? readTime : readTime?.text}
+              </span>
             </SectionSubHeading>
           </div>
         </div>

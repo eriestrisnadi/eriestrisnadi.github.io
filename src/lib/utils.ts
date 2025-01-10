@@ -65,3 +65,17 @@ export function compareDate(
   // Return 0 if diff is 0; return NaN if diff is NaN
   return diff;
 }
+
+export const dateFormatter = Intl.DateTimeFormat("en-US", {
+  timeZone: "Asia/Jakarta",
+  dateStyle: "medium",
+  timeStyle: "medium",
+}).format;
+
+export function parseDate(value: number | string | Date) {
+  try {
+    return value instanceof Date ? value : new Date(value);
+  } catch (_err) {
+    return undefined;
+  }
+}

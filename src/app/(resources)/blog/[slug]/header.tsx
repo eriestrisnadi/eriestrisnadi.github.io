@@ -1,6 +1,6 @@
-import { format as durationFormat } from "timeago.js";
-import type { Post } from "@/contents";
 import { HTMLAttributes } from "react";
+import TimeAgo from "@/components/time-ago";
+import type { Post } from "@/contents";
 
 export interface PostHeaderProps
   extends Omit<HTMLAttributes<HTMLDivElement>, "title">,
@@ -18,7 +18,7 @@ export default async function PostHeader({
       </h1>
       <p className="flex justify-between text-muted-foreground my-0">
         <span>{readTime}</span>
-        <span>{durationFormat(publishedAt)}</span>
+        <TimeAgo date={publishedAt} />
       </p>
     </div>
   );
