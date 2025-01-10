@@ -1,43 +1,9 @@
-import { makeSource, defineDocumentType } from "@contentlayer/source-files";
-import path from "node:path";
-import readingTime from "reading-time";
+import { makeSource } from "@contentlayer/source-files";
+import * as documentTypes from "./src/documents";
 
-export const Post = defineDocumentType(() => ({
-  name: "Post",
-  filePathPattern: "blog/**/*.mdx",
-  contentType: "mdx",
-  fields: {
-    title: { type: "string", required: true },
-    excerpt: { type: "string", required: true },
-    cover: { type: "string" },
-    publishedAt: { type: "date", required: true },
-    tags: {
-      type: "list",
-      of: { type: "string" },
-    },
-    featured: { type: "boolean" },
-    author: { type: "string" },
-  },
-  computedFields: {
-    url: {
-      type: "string",
-      resolve: ({ _raw: { flattenedPath } }) => `/${flattenedPath}`,
-    },
-    stem: {
-      type: "string",
-      resolve: ({ _raw: { flattenedPath } }) => path.parse(flattenedPath).name,
-    },
-    readTime: {
-      type: "string",
-      resolve: ({ body: { raw } }) =>
-        readingTime(raw, {
-          wordsPerMinute: 265,
-        }).text,
-    },
-  },
-}));
+export const contentDirPath = "contents";
 
 export default makeSource({
-  contentDirPath: "contents",
-  documentTypes: [Post],
+  contentDirPath,
+  documentTypes,
 });
