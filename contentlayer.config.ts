@@ -6,4 +6,7 @@ export const contentDirPath = "contents";
 export default makeSource({
   contentDirPath,
   documentTypes,
+  date: {
+    timezone: "Asia/Jakarta",
+  },
 });

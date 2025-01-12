@@ -67,7 +67,6 @@ export function compareDate(
 }
 
 export const dateFormatter = Intl.DateTimeFormat("en-US", {
-  timeZone: "Asia/Jakarta",
   dateStyle: "medium",
   timeStyle: "medium",
 }).format;
