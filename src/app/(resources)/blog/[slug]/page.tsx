@@ -4,6 +4,7 @@ import { getMDXComponent } from "next-contentlayer/hooks";
 import { Image } from "@/components/ui/image";
 import { allPosts } from "@/contents";
 import PostHeader from "./header";
+import { PageNavigation } from "@/components/page-navigation";
 
 export interface PostPageProps {
   params: { slug: string };
@@ -17,19 +18,24 @@ export default async function PostPage({ params }: PostPageProps) {
   const Content = getMDXComponent(post.body.code);
 
   return (
-    <article className="prose prose-sm transition-colors mx-auto">
+    <article className="prose prose-sm max-w-2xl mx-auto lg:mx-0 transition-colors relative">
+      <aside className="absolute left-full lg:block hidden">
+        <div className="fixed top-[150px] not-prose w-max pl-12">
+          <PageNavigation title="On this article" headings={post.headings} />
+        </div>
+      </aside>
       <PostHeader
         title={post.title}
         readTime={post.readTime}
         publishedAt={post.publishedAt}
       />
-      <hr className="my-5" />
+      <hr className="not-prose my-5" />
       {post.cover && (
         <Image
           src={post.cover}
           width={680}
           height={383}
-          className="w-full h-auto mt-0"
+          className="w-full h-auto mt-0 not-prose"
           alt={`${params.slug}-thumb-cover`}
         />
       )}

@@ -1,6 +1,10 @@
-import { defineDocumentType } from "@contentlayer/source-files";
 import path from "node:path";
+import { defineDocumentType } from "@contentlayer/source-files";
 import readingTime from "reading-time";
+import { bundleMDX } from "mdx-bundler";
+import { slugify } from "../lib/slugify";
+import { remarkHeadingId } from "../lib/remark-heading-id";
+import { type PostHeading, contentlayerToc } from "../lib/contentlayer-toc";
 
 export const Post = defineDocumentType(() => ({
   name: "Post",
@@ -33,6 +37,30 @@ export const Post = defineDocumentType(() => ({
         readingTime(raw, {
           wordsPerMinute: 265,
         }).text,
+    },
+    headings: {
+      type: "json",
+      resolve: async (doc) => {
+        const headings: PostHeading[] = [];
+
+        await bundleMDX({
+          source: doc.body.raw,
+          mdxOptions: (opts) => {
+            opts.remarkPlugins = [
+              ...(opts.remarkPlugins ?? []),
+              remarkHeadingId,
+              [contentlayerToc, { headings }],
+            ];
+
+            return opts;
+          },
+        });
+
+        return [
+          { level: 1, title: doc.title, stem: slugify(doc.title) },
+          ...headings,
+        ];
+      },
     },
   },
 }));
