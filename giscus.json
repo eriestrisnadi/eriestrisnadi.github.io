@@ -1,0 +1,9 @@
+{
+  "origins": [
+    "https://eriestrisnadi.github.io"
+  ],
+  "originsRegex": [
+    "https://animated-waffle-[A-z0-9]+-[0-9]+\\.app\\.github\\.dev"
+  ],
+  "defaultCommentOrder": "newest"
+}

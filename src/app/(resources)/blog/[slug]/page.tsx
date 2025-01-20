@@ -5,6 +5,7 @@ import { Image } from "@/components/ui/image";
 import { allPosts } from "@/contents";
 import PostHeader from "./header";
 import { PageNavigation } from "@/components/page-navigation";
+import Comments from "@/components/comments";
 
 export interface PostPageProps {
   params: { slug: string };
@@ -40,6 +41,7 @@ export default async function PostPage({ params }: PostPageProps) {
         />
       )}
       <Content />
+      <Comments />
     </article>
   );
 }

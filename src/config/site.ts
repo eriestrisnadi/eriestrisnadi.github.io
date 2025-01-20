@@ -1,22 +1,23 @@
 import pkg from "@/package.json";
 import type { Metadata, Viewport } from "next";
 
+const { pathname } = new URL(pkg.repository.url);
+const [username, repoName] = pathname
+  .substring(1, pathname.lastIndexOf("."))
+  .split("/");
+
 export const siteConfig = {
   name: pkg.author?.name ?? "Personal Website",
   description: "Let's think about it later",
   url: pkg.homepage,
   ogImage: "",
   since: 2014,
-  author: Object.assign(
-    {
-      username: "eriestrisnadi",
-    },
-    pkg.author
-  ),
+  author: Object.assign({ username }, pkg.author),
   links: {
     avatar: "https://avatars.githubusercontent.com/u/11029687?v=4",
-    github: "https://github.com/eriestrisnadi",
+    github: `https://github.com/${username}`,
   },
+  repository: Object.assign({ username, name: repoName }, pkg.repository),
 };
 
 export const metadata = {
