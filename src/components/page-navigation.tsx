@@ -2,55 +2,93 @@
 
 import { PostHeading } from "@/lib/contentlayer-toc";
 import { cn } from "@/lib/utils";
-import { useState, useEffect } from "react";
+import Link from "next/link";
+import {
+  useState,
+  useEffect,
+  useRef,
+  type MouseEvent,
+  useCallback,
+} from "react";
+import { useHashLocation } from "@/hooks/use-hash-location";
 
 interface PageNavigationProps {
   headings: PostHeading[];
   title?: string;
+  scrollOffset?: number;
 }
 
-export function PageNavigation({ headings, title = 'On this page' }: PageNavigationProps) {
-  const [activeHeading, setActiveHeading] = useState("");
+export function PageNavigation({
+  headings,
+  title = "On this page",
+}: PageNavigationProps) {
+  const hashLocation = useHashLocation();
+  const [activeHeading, setActiveHeading] = useState<string>(
+    hashLocation ?? ""
+  );
+  const parentRef = useRef<HTMLDivElement>(null);
+
+  function scrollIntoView(event: MouseEvent<HTMLAnchorElement>) {
+    const target = event.currentTarget;
+    const element = document.getElementById(
+      target.href.substring(target.href.indexOf("#") + 1)
+    );
+
+    if (!element) return;
+
+    const offset = parentRef.current?.getBoundingClientRect().top ?? 0;
+    const top = element.getBoundingClientRect().top + window.scrollY - offset;
+    window.scrollTo({ top, behavior: "smooth" });
+  }
+
+  const onScroll = useCallback(() => {
+    let current = "";
+
+    for (const heading of headings) {
+      const element = document.getElementById(heading.stem);
+      if (!element) continue;
+
+      const offset = Math.ceil(
+        parentRef.current?.getBoundingClientRect().top ?? 0
+      );
+      const top = Math.ceil(element.getBoundingClientRect().top);
+      if (top <= offset) current = heading.stem;
+    }
+
+    setActiveHeading(current);
+  }, [headings]);
 
   useEffect(() => {
-    const handleScroll = () => {
-      let current = "";
-      for (const heading of headings) {
-        const element = document.getElementById(heading.stem);
+    window.addEventListener("scroll", onScroll);
 
-        if (element && element.getBoundingClientRect().top < 200)
-          current = heading.stem;
-      }
-      setActiveHeading(current);
-    };
-    handleScroll();
-    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("scroll", onScroll);
     };
-  }, [headings]);
+  }, [onScroll]);
 
   const headingsToRender = headings.filter(({ level }) => level > 1);
 
   if ((headingsToRender ?? []).length === 0) return null;
 
   return (
-    <div className="text-sm">
+    <div ref={parentRef} className="text-sm">
       <h4 className="mb-4 font-medium text-muted-foreground">{title}</h4>
       <ul className="space-y-2">
         {headingsToRender.map(({ title, level, stem }, index) => (
           <li key={index}>
-            <a
+            <Link
               href={`#${stem}`}
               style={{ marginLeft: (level - 2) * 16 }}
               className={cn(
-                "flex hover:text-muted-foreground",
+                "flex hover:text-muted-foreground scroll-m-10",
                 stem == activeHeading && "text-primary"
               )}
+              scroll={false}
+              onClick={scrollIntoView}
             >
               <span className="mr-2 block shrink-0">&bull;</span>
               <span>{title}</span>
-            </a>
+            </Link>
           </li>
         ))}
       </ul>
