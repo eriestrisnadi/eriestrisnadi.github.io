@@ -72,17 +72,18 @@ function ArticleCard({
             {tags?.map?.((tag) => (
               <span
                 key={tag}
-                className="bg-background/75 py-0.5 px-2.5 text-xs rounded-full"
+                className="bg-background/75 px-0.5 text-xs transition-[background-size,color] bg-gradient-to-t from-foreground to-foreground bg-no-repeat bg-[size:0_2px] even:bg-left-top odd:bg-right-bottom group-hover:bg-[size:100%_2px]"
               >
-                # {tag}
+                {`#${tag}`}
               </span>
             ))}
           </div>
-          <div className="flex flex-col justify-end">
-            <SectionHeading className='inline-flex w-max relative z-0 transition-colors after:content-[""] after:w-0 after:h-2/3 after:inline after:absolute after:left-0 after:top-1/3 after:bg-foreground after:-z-10 after:skew-10 after:transition-all group-hover:text-background group-hover:after:w-[calc(100%+1rem)]'>
+          <div>
+            <SectionHeading className="inline relative z-0 transition-[background-size,color] bg-gradient-to-t from-foreground to-foreground bg-no-repeat bg-[size:0_100%] bg-left-bottom group-hover:text-background group-hover:bg-[size:100%_100%]">
               {title}
             </SectionHeading>
-            <SectionSubHeading className='text-sm text-foreground/70 inline-flex w-max relative z-0 transition-colors after:content-[""] after:w-0 after:h-2/3 after:inline after:absolute after:left-0 after:top-1/3 after:bg-foreground after:-z-10 after:skew-10 after:transition-[width] group-hover:after:delay-150 group-hover:text-background group-hover:after:w-[calc(100%+1rem)] space-x-2 items-center'>
+            <br />
+            <SectionSubHeading className='text-sm text-foreground/70 space-x-2 items-center inline relative z-0 transition-[background-size,color] bg-clip-text bg-gradient-to-b from-foreground from-70% to-30% to-background bg-no-repeat bg-[size:0_100%] bg-right-top after:bg-gradient-to-b after:from-background after:from-70% after:to-30% after:to-foreground after:bg-no-repeat after:bg-[size:0_100%] after:bg-right-top after:transition-[background-size,color] after:content-[""] after:w-full after:h-full after:absolute after:inset-0 after:-z-10 group-hover:text-transparent group-hover:bg-[size:100%_100%] group-hover:after:bg-[size:100%_100%]'>
               <TimeAgo date={publishedAt} />
               <span className="text-xs">&bull;</span>
               <span>

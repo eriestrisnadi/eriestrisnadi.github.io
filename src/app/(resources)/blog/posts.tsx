@@ -23,10 +23,15 @@ export default async function Posts() {
             key={`${postProps.title}-${postProps.publishedAt}`}
             href={url}
             linkProps={{
-              className: cn(twoSpans.includes(postIndex) && "md:col-span-2"),
+              className: twoSpans.includes(postIndex) ? "md:col-span-2" : "",
             }}
             containerProps={{ className: "w-full h-full" }}
-            imageProps={{ className: "h-auto bottom-1/2 translate-y-1/2" }}
+            imageProps={{
+              className: cn(
+                "bottom-1/2 translate-y-1/2",
+                twoSpans.includes(postIndex) ? "w-full h-auto" : "w-auto h-full"
+              ),
+            }}
           />
         ))}
       </div>
