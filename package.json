@@ -39,7 +39,7 @@
     "contentlayer": "^0.3.4",
     "framer-motion": "^11.11.0",
     "hast-util-to-string": "^3.0.1",
-    "next": "14.2.14",
+    "next": "14.2.21",
     "next-contentlayer": "^0.3.4",
     "normalize-wheel": "^1.0.1",
     "react": "^18",
