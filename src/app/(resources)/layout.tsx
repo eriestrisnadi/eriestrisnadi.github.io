@@ -1,15 +1,9 @@
-import type { ReactNode, PropsWithChildren } from "react";
+import MainLayout from "@/app/(main)/layout";
+import { VERTICAL } from "@/lib/utils";
+import type { PropsWithChildren } from "react";
 
-export default function ResourcesLayout({
-  navigation,
+export default function ResourceLayout({
   children,
-}: PropsWithChildren<{ navigation: ReactNode }>) {
-  return (
-    <div className="relative flex min-h-screen flex-col lg:pb-4">
-      {navigation}
-      <main className="flex-1 flex flex-col p-6 lg:p-8 overflow-x-hidden">
-        {children}
-      </main>
-    </div>
-  );
+}: Readonly<PropsWithChildren>) {
+  return <MainLayout position={VERTICAL}>{children}</MainLayout>;
 }

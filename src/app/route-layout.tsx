@@ -8,14 +8,12 @@ import React, {
   type ReactNode,
 } from "react";
 import MainLayout from "@/app/(main)/layout";
-import MainNavigation from "@/app/(main)/@navigation/default";
 import ResourceLayout from "@/app/(resources)/layout";
-import ResourceNavigation from "@/app/(resources)/@navigation/default";
 import { usePathname } from "next/navigation";
 
 const layoutMap = {
-  blog: <ResourceLayout navigation={<ResourceNavigation />} />,
-  default: <MainLayout navigation={<MainNavigation />} />,
+  blog: <ResourceLayout />,
+  default: <MainLayout />,
 };
 
 export default function RouteLayout({

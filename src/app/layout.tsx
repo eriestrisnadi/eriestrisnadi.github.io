@@ -1,17 +1,12 @@
 import { Inter } from "next/font/google";
 import { cn } from "@/lib/utils";
 import "@/app/globals.css";
-import React from "react";
-
 export { metadata, viewport } from "@/config/site";
+import type { PropsWithChildren } from "react";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: Readonly<PropsWithChildren>) {
   return (
     <html lang="en" className="dark">
       <head />

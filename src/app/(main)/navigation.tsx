@@ -2,13 +2,14 @@
 
 import { useEffect, useState } from "react";
 import { Navigation } from "@/components/navigation";
-import { cn, HORIZONTAL, VERTICAL } from "@/lib/utils";
+import { SiteHeader } from "@/components/site-header";
 import { ModeToggle } from "@/components/mode-toggle";
 import MenuToggle from "@/components/menu-toggle";
 import { Profile } from "@/components/profile";
 import { useMediaQuery } from "@/hooks/use-media-query";
+import { cn, HORIZONTAL, VERTICAL, type Position } from "@/lib/utils";
 
-export default function NavigationHeader() {
+function HorizontalNavigation() {
   const [showMenu, setShowMenu] = useState(false);
   const isLargeDevice: string | boolean = useMediaQuery("lg", {
     defaultValue: "",
@@ -17,7 +18,7 @@ export default function NavigationHeader() {
 
   useEffect(() => {
     setShowMenu(isInitial || isLargeDevice);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isLargeDevice]);
 
   return (
@@ -66,5 +67,37 @@ export default function NavigationHeader() {
       )}
       <ModeToggle className="fixed bottom-0 right-0 rounded-b-none rounded-r-none" />
     </header>
+  );
+}
+
+function VerticalNavigation() {
+  const [showMenu, setShowMenu] = useState(false);
+
+  return (
+    <header
+      className={cn(
+        "sticky top-0 space-y-2 lg:py-4 bg-background lg:w-1/5 shrink-0 lg:block lg:sticky lg:top-4 z-50",
+        showMenu && "fixed w-full h-full"
+      )}
+    >
+      <SiteHeader onToggleMenu={setShowMenu} />
+      <Navigation
+        position={VERTICAL}
+        className={cn("px-4 hidden lg:px-0 lg:flex", showMenu && "flex")}
+      />
+      <ModeToggle className="fixed bottom-0 right-0 rounded-b-none rounded-r-none" />
+    </header>
+  );
+}
+
+export default function AppNavigation({
+  position = HORIZONTAL,
+}: {
+  position?: Position;
+}) {
+  return position === HORIZONTAL ? (
+    <HorizontalNavigation />
+  ) : (
+    <VerticalNavigation />
   );
 }
