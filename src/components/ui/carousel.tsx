@@ -5,17 +5,19 @@ import {
   useRef,
   useState,
   type HTMLAttributes,
-  type MutableRefObject,
   type ReactNode,
 } from "react";
-import { motion, type HTMLMotionProps } from "framer-motion";
+import { motion, type HTMLMotionProps } from "motion/react";
 import { cn } from "@/lib/utils";
 import { ChevronLeftIcon, ChevronRightIcon } from "@radix-ui/react-icons";
 import { Button } from "@/components/ui/button";
 
 interface CarouselProps extends HTMLMotionProps<"div"> {
-  containerProps?: Omit<HTMLMotionProps<"div">, "children">;
-  containerActionProps?: Omit<HTMLAttributes<HTMLDivElement>, "children">;
+  containerProps?: Omit<HTMLMotionProps<"div">, "children" | "ref">;
+  containerActionProps?: Omit<
+    HTMLAttributes<HTMLDivElement>,
+    "children" | "ref"
+  >;
 }
 
 function Carousel({
@@ -28,7 +30,7 @@ function Carousel({
   } = {},
   ...restProps
 }: CarouselProps) {
-  const ref = useRef<HTMLDivElement>() as MutableRefObject<HTMLDivElement>;
+  const ref = useRef<HTMLDivElement>();
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
 
@@ -69,6 +71,7 @@ function Carousel({
       {...restContainerProps}
     >
       <motion.div
+        // @ts-ignore
         ref={ref}
         className={cn(
           "flex overflow-scroll space-x-4 [-ms-overflow-style:none] [scrollbar-width:none] [-webkit-scrollbar:none]",

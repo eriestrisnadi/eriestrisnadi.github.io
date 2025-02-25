@@ -1,4 +1,4 @@
-import * as motion from "framer-motion/client";
+import * as motion from "motion/react-client";
 import SectionHeading from "@/components/section-heading";
 import ArticleCard from "@/components/article-card";
 import { fadeLeft } from "@/lib/animation";

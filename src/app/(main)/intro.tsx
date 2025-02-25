@@ -1,8 +1,6 @@
-"use client";
-
-import { motion } from "framer-motion";
-import { fadeLeft, fadeUp, wave } from "@/lib/animation";
+import * as motion from "motion/react-client";
 import { siteConfig } from "@/config/site";
+import { fadeLeft, fadeUp } from "@/lib/animation";
 
 export default function Intro() {
   const [alias] = (siteConfig.author.name ?? "").split(" ");

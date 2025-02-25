@@ -6,12 +6,16 @@ import LatestArticles from "@/app/(main)/latest-articles";
 
 export default function HomePage() {
   return (
-    <Stagger>
-      <Intro />
-      <Divider />
-      <LatestArticles />
-      <Divider />
-      <TechStack />
-    </Stagger>
+    <div>
+      <Stagger viewport={{ once: true }}>
+        <Intro />
+        <Divider />
+        <LatestArticles />
+      </Stagger>
+      <Stagger viewport={{ once: true }}>
+        <Divider />
+        <TechStack />
+      </Stagger>
+    </div>
   );
 }

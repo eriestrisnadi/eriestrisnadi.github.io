@@ -1,9 +1,7 @@
-"use client";
-
+import * as motion from "motion/react-client";
 import Stacks from "@/components/stacks";
 import SectionHeading from "@/components/section-heading";
 import SectionSubHeading from "@/components/section-sub-heading";
-import { motion } from "framer-motion";
 import { fadeUp } from "@/lib/animation";
 
 export default function TechStack() {

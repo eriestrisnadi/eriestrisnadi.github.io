@@ -1,7 +1,7 @@
-import * as motion from "framer-motion/client";
+import * as motion from "motion/react-client";
 import SectionHeading from "@/components/section-heading";
-import { fadeUp } from "@/lib/animation";
 import RecentPostsCarousel from "@/app/(resources)/blog/recent-posts-carousel";
+import { fadeUp } from "@/lib/animation";
 
 export default function LatestArticles() {
   return (

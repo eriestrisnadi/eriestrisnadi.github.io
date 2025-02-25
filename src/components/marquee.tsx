@@ -6,7 +6,7 @@ import {
   useSpring,
   type DragHandlers,
   type MotionValue,
-} from "framer-motion";
+} from "motion/react";
 import normalizeWheel from "normalize-wheel";
 import { useWindowSize } from "usehooks-ts";
 import { useRafLoop } from "@/hooks/use-raf-loop";
