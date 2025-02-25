@@ -4,7 +4,7 @@ import type { Config } from "tailwindcss";
 const config = {
   darkMode: ["class"],
   content: [
-    "./src/**/*.{ts,tsx}",
+    "./src/**/*.{ts,tsx,css}",
     "./contents/blog/**/*.mdx",
   ],
   prefix: "",
@@ -76,6 +76,13 @@ const config = {
         "rise-up": {
           from: { transform: "rotate(180deg)" },
           to: { transform: "rotate(1turn)" },
+        },
+        progress: {
+          '0%': { width: '0%' },
+          '10%': { width: '10%' },
+          '30%': { width: '30%' },
+          '65%': { width: '65%' },
+          '100%': { width: '100%' },
         },
       },
       animation: {
