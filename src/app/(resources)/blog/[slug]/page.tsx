@@ -21,7 +21,7 @@ export default async function PostPage({ params }: PostPageProps) {
   return (
     <article className="prose prose-sm max-w-2xl mx-auto lg:mx-0 transition-colors relative">
       <aside className="absolute left-full lg:block hidden">
-        <div className="fixed top-[150px] not-prose w-max pl-12">
+        <div className="fixed top-[150px] not-prose pl-6 2xl:pl-12">
           <PageNavigation title="On this article" headings={post.headings} />
         </div>
       </aside>
