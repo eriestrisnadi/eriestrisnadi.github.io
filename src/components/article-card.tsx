@@ -6,12 +6,11 @@ import { Image, type ImageProps } from "@/components/ui/image";
 import { cn } from "@/lib/utils";
 import TimeAgo from "@/components/time-ago";
 import type { HTMLAttributes } from "react";
-import type { ReadTimeResults } from "reading-time";
 import type { Post } from "@/contents";
 
-interface ArticleCardProps extends Omit<Post, "url" | "readTime"> {
+interface ArticleCardProps extends Omit<Post, "url" | "readTime" | "metadata"> {
   href: LinkProps["href"];
-  readTime?: ReadTimeResults | Post["readTime"];
+  readTime?: Post["metadata"]["readingTime"];
   linkProps?: Omit<
     Omit<HTMLAttributes<HTMLAnchorElement>, keyof LinkProps> & LinkProps,
     "children" | "href"

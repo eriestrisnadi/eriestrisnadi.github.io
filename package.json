@@ -22,7 +22,7 @@
   ],
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev --turbo",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
@@ -36,11 +36,9 @@
     "@tailwindcss/typography": "^0.5.16",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
-    "contentlayer": "^0.3.4",
     "hast-util-to-string": "^3.0.1",
     "motion": "^12.4.7",
-    "next": "14.2.21",
-    "next-contentlayer": "^0.3.4",
+    "next": "15.1.7",
     "normalize-wheel": "^1.0.1",
     "react": "^18",
     "react-dom": "^18",
@@ -49,7 +47,8 @@
     "tailwindcss-animate": "^1.0.7",
     "timeago.js": "^4.0.2",
     "usehooks-ts": "^3.1.0",
-    "vaul": "^0.9.0"
+    "vaul": "^0.9.0",
+    "velite": "^0.2.2"
   },
   "devDependencies": {
     "@types/node": "^20",
@@ -57,8 +56,8 @@
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "autoprefixer": "^10.0.1",
-    "eslint": "^8",
-    "eslint-config-next": "14.2.21",
+    "eslint": "^9.0.0",
+    "eslint-config-next": "15.1.7",
     "postcss": "^8.5.3",
     "tailwindcss": "^3.4.17",
     "typescript": "^5"

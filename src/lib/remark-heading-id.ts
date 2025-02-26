@@ -1,19 +1,14 @@
 import { visit } from "unist-util-visit";
 import { toString } from "hast-util-to-string";
 import { slugify } from "./slugify";
-import type { Node } from "hast";
-import type { Heading } from "mdast";
-import type { Plugin } from "unified";
+import type { Heading, Node } from "mdast";
 
 export type Nodes = Parameters<typeof toString>[0] &
-  Node<{
-    hProperties: HTMLHeadingElement;
-    [K: string]: unknown;
-  }> &
+  Node &
   Pick<Heading, "depth">;
 
-export function remarkHeadingId(): Plugin {
-  return function (tree) {
+export function remarkHeadingId() {
+  return function (tree: Node) {
     visit(tree, "heading", function (node: Nodes) {
       const id = node.data?.hProperties?.id
         ? String(node.data.hProperties.id)

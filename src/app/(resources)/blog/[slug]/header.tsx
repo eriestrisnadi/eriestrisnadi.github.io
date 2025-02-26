@@ -4,7 +4,9 @@ import type { Post } from "@/contents";
 
 export interface PostHeaderProps
   extends Omit<HTMLAttributes<HTMLDivElement>, "title">,
-    Pick<Post, "title" | "readTime" | "publishedAt"> {}
+    Pick<Post, "title" | "publishedAt"> {
+  readTime: string | Post["metadata"]["readingTime"];
+}
 
 export default async function PostHeader({
   readTime,
@@ -17,7 +19,7 @@ export default async function PostHeader({
         {restProps.title}
       </h1>
       <p className="flex justify-between text-muted-foreground my-0">
-        <span>{readTime}</span>
+        <span>{typeof readTime === "string" ? readTime : readTime?.text}</span>
         <TimeAgo date={publishedAt} />
       </p>
     </div>

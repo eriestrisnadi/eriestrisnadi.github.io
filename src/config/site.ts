@@ -25,14 +25,18 @@ export const metadata = {
     default: siteConfig.name,
     template: `${siteConfig.name} - %s`,
   },
+
   metadataBase: new URL(siteConfig.url),
+
   authors: [
     {
       name: siteConfig.author.username,
       url: siteConfig.url,
     },
   ],
+
   description: siteConfig.description,
+
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -49,6 +53,7 @@ export const metadata = {
       },
     ],
   },
+
   twitter: {
     card: "summary_large_image",
     title: siteConfig.name,
@@ -63,6 +68,7 @@ export const metadata = {
     ],
     creator: `@${siteConfig.author.username}`,
   },
+
   icons: {
     icon: "/favicon.ico",
     shortcut: [
@@ -133,7 +139,7 @@ export const metadata = {
         sizes: "180x180",
       },
     ],
-  },
+  }
 } satisfies Metadata;
 
 export const viewport = {

@@ -1,12 +1,12 @@
 import ArticleCard from "@/components/article-card";
 import Carousel from "@/components/ui/carousel";
 import Divider from "@/components/ui/divider";
-import { allPosts } from "@/contents";
+import { posts } from "@/contents";
 import { fadeLeft } from "@/lib/animation";
 import { cn, compareDate } from "@/lib/utils";
 
 export default async function FeaturedPostsCarousel() {
-  const posts = allPosts
+  const featuredPosts = posts
     .filter(({ featured }) => featured)
     .sort(({ publishedAt: a }, { publishedAt: b }) => compareDate(a, b));
 
@@ -14,7 +14,10 @@ export default async function FeaturedPostsCarousel() {
     <>
       <Carousel
         containerProps={{
-          className: cn("-mx-8 px-8 space-y-0", !posts?.length && "hidden"),
+          className: cn(
+            "-mx-8 px-8 space-y-0",
+            !featuredPosts?.length && "hidden"
+          ),
           variants: fadeLeft,
         }}
         containerActionProps={{
@@ -22,7 +25,7 @@ export default async function FeaturedPostsCarousel() {
             "mt-0 [&>button]:absolute [&>button>svg]:w-8 [&>button>svg]:h-8 [&>button]:top-1/2 [&>button]:-translate-y-1/2 [&>button]:h-full [&>button]:from-background [&>button]:-from-50% [&>button]:to-75% [&>button]:rounded-none hover:[&>button]:bg-transparent [&>button]:w-20 first-of-type:[&>button]:left-8 first-of-type:hover:[&>button]:bg-gradient-to-r last-of-type:[&>button]:right-8 last-of-type:hover:[&>button]:bg-gradient-to-l",
         }}
       >
-        {posts?.map(({ url, readTime, ...postProps }) => (
+        {featuredPosts?.map(({ url, metadata, ...postProps }) => (
           <ArticleCard
             {...postProps}
             key={`${postProps.title}-${postProps.publishedAt}`}
@@ -33,7 +36,7 @@ export default async function FeaturedPostsCarousel() {
           />
         ))}
       </Carousel>
-      <Divider className={cn(!posts?.length && "hidden")} />
+      <Divider className={cn(!featuredPosts?.length && "hidden")} />
     </>
   );
 }
