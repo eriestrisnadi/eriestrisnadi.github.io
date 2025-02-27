@@ -27,11 +27,10 @@ export const posts = defineCollection({
         readingTime: {
           minutes,
           // TODO: support i18n? or auto determine unit minutes/hours/days/etc?
-          text: `${minutes} min${minutes > 1 ? "s" : ""} left`,
+          text: `${minutes} min${minutes > 1 ? "s" : ""} read`,
         },
       })),
-    toc: s.toc(),
-    betterToc: toc(),
+    toc: toc(),
     body: s.mdx().transform((code, { meta: { content: raw } }) => ({
       raw,
       code,

@@ -25,12 +25,12 @@ export default async function PostPage({ params }: PostPageProps) {
     <article className="prose prose-sm max-w-2xl mx-auto lg:mx-0 transition-colors relative">
       <aside className="absolute left-full lg:block hidden">
         <div className="fixed top-[150px] not-prose pl-6 2xl:pl-12">
-          <PageNavigation title="On this article" headings={post.betterToc} />
+          <PageNavigation title="On this article" headings={post.toc} />
         </div>
       </aside>
       <PostHeader
         title={post.title}
-        readTime={post.metadata.readingTime.text}
+        readTime={post.metadata.readingTime}
         publishedAt={post.publishedAt}
       />
       <hr className="not-prose my-5" />
