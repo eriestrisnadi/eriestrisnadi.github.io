@@ -1,6 +1,6 @@
 import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
-import resolveConfig from "tailwindcss/resolveConfig";
+import resolveConfig from "tailwindcss/resolveConfig.js";
 import tailwindConfig from "@/tailwind.config";
 
 export const HORIZONTAL: "horizontal" = "horizontal";
