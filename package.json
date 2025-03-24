@@ -65,6 +65,7 @@
   "resolutions": {
     "cross-spawn": "7.0.6",
     "braces": "~3.0.3",
+    "esbuild": "~0.25.0",
     "micromatch": "4.0.8",
     "postcss": "^8.5.3"
   },
