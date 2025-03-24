@@ -2,6 +2,7 @@ import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
 import resolveConfig from "tailwindcss/resolveConfig.js";
 import tailwindConfig from "@/tailwind.config";
+import { siteConfig } from "@/config/site";
 
 export const HORIZONTAL: "horizontal" = "horizontal";
 export const VERTICAL: "vertical" = "vertical";
@@ -67,8 +68,14 @@ export function compareDate(
 }
 
 export const dateFormatter = Intl.DateTimeFormat("en-US", {
-  dateStyle: "medium",
-  timeStyle: "medium",
+  year: "numeric",
+  month: "2-digit",
+  day: "2-digit",
+  hour: "2-digit",
+  minute: "2-digit",
+  second: "2-digit",
+  timeZoneName: "short",
+  timeZone: siteConfig.timeZone,
 }).format;
 
 export function parseDate(value: number | string | Date) {
@@ -77,4 +84,13 @@ export function parseDate(value: number | string | Date) {
   } catch (_err) {
     return undefined;
   }
+}
+
+export function getTimezoneOffset(timeZone: string) {
+  return Intl.DateTimeFormat("en-US", {
+    timeZoneName: "short",
+    timeZone,
+  })
+    .formatToParts()
+    .find(({ type }) => type === "timeZoneName")?.value;
 }

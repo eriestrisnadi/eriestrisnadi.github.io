@@ -1,5 +1,5 @@
 import { defineCollection, s } from "velite";
-import { toc } from "@/documents/schemas/toc";
+import { toc, isodate } from "@/documents/schemas";
 
 export const posts = defineCollection({
   name: "Post",
@@ -16,7 +16,7 @@ export const posts = defineCollection({
       .pipe(s.slug("Post", ["blog"])),
     excerpt: s.excerpt(),
     cover: s.union([s.string().url(), s.string()]),
-    publishedAt: s.isodate(),
+    publishedAt: isodate(),
     tags: s.array(s.string()),
     featured: s.boolean().default(false),
     author: s.string().optional(),

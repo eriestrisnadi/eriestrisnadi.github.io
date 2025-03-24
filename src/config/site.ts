@@ -18,6 +18,7 @@ export const siteConfig = {
     github: `https://github.com/${username}`,
   },
   repository: Object.assign({ username, name: repoName }, pkg.repository),
+  timeZone: 'Asia/Jakarta',
 };
 
 export const metadata = {
