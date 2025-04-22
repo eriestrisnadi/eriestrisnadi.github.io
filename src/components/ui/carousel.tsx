@@ -30,7 +30,7 @@ function Carousel({
   } = {},
   ...restProps
 }: CarouselProps) {
-  const ref = useRef<HTMLDivElement>();
+  const ref = useRef<HTMLDivElement>(undefined);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
 

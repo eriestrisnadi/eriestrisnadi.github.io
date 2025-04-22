@@ -5,7 +5,7 @@ import { Cross2Icon, DotsVerticalIcon } from "@radix-ui/react-icons";
 import { Button, ButtonProps } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
-interface MenuToggleProps extends Omit<ButtonProps, "children" | "value"> {
+interface MenuToggleProps extends Omit<ButtonProps, "children" | "value" | "onToggle"> {
   onToggle?: (value: boolean) => void;
   value?: boolean;
 }
